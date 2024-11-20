@@ -102,6 +102,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_advanced_segment:
+    dependency: "direct main"
+    description:
+      name: flutter_advanced_segment
+      sha256: "58518e2b7229cc4dd98a778f594e54813a4c244bcbf9e702a8fa194bf09509b8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -110,11 +118,27 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
+  flutter_switch:
+    dependency: "direct main"
+    description:
+      name: flutter_switch
+      sha256: b91477f926bba135d2d203d7b24367492662d8d9c3aa6adb960b14c1087d3c41
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_toggle_button:
+    dependency: "direct main"
+    description:
+      name: flutter_toggle_button
+      sha256: bc8f903ad381ceba9d57d61b353dc2557b33f3f8d6ed063d19ca491691ae0e81
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   get:
     dependency: "direct main"
     description:

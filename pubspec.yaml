@@ -40,6 +40,9 @@ dependencies:
   cool_dropdown: ^2.1.1
   dropdown_button2: ^2.3.9
   custom_check_box: ^0.0.4
+  flutter_toggle_button: ^0.0.3
+  flutter_advanced_segment: ^3.0.2
+  flutter_switch: ^0.3.2
 
 dev_dependencies:
   flutter_test:

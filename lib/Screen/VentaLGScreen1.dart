@@ -153,6 +153,7 @@ class Ventalgscreen1 extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
+              SizedBox(),
               GestureDetector(onTap: (){
                 Get.to(Ventalgscreen2(),transition: Transition.rightToLeft,
                 duration: Duration(milliseconds: 500));

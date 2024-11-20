@@ -6,6 +6,7 @@ import 'package:custom_check_box/custom_check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venta/Screen/Auth/SignUPScreen.dart';
 
 class SignInScreen extends StatefulWidget {
   
@@ -28,6 +29,7 @@ class _SignInScreenState extends State<SignInScreen> {
             Padding(
               padding: EdgeInsets.all(10),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     width: 80,
@@ -87,8 +89,9 @@ class _SignInScreenState extends State<SignInScreen> {
                       },
                     ),
                   ),
-                  SizedBox(width: Get.width / 9,),
-                  Container(
+                  Row(
+                    children: [
+                      Container(
                     height: 45,
                     width: 150,
                     decoration: BoxDecoration(
@@ -98,6 +101,11 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ),
                   ),
+                  SizedBox(width: 80,)
+                    ],
+                  ),
+                  Container()
+                  
                 ],
               ),
             ),
@@ -216,7 +224,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(height: 25,),
                     ElevatedButton(
                     onPressed: (){
-                      
+                      Get.to(Signupscreen(), transition: Transition.rightToLeft,duration: Duration(milliseconds: 500));
                     }, 
                     child: Text("Qeydiyyatdan keç",style: GoogleFonts.poppins(
                         fontSize: 20,
