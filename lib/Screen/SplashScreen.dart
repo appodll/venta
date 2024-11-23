@@ -25,7 +25,7 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
     );
     _controller.forward(); 
-    Future.delayed(Duration(seconds: 5),(){
+    Future.delayed(Duration(seconds: 3),(){
       Get.off(Ventalgscreen1(),duration: Duration(milliseconds: 500), transition: Transition.rightToLeft);
     });
   }

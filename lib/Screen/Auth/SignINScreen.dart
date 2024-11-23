@@ -6,6 +6,7 @@ import 'package:custom_check_box/custom_check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venta/Screen/Auth/OTPScreen.dart';
 import 'package:venta/Screen/Auth/SignUPScreen.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -23,6 +24,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        
       child: SafeArea(
         child: Column(
           children: [
@@ -124,14 +126,13 @@ class _SignInScreenState extends State<SignInScreen> {
             SizedBox(height: 130,),
             Container(
               width: Get.width,
+              
               decoration: BoxDecoration(
                 color: Color.fromRGBO(247, 247, 248, 1),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15)
-                )
+                borderRadius: BorderRadius.circular(15)
               ),
               child: Column(
+                
                 children: [
                   SizedBox(height: 25,),
                   Text("Fin kod ilə daxil ol", style: GoogleFonts.lato(
@@ -205,7 +206,9 @@ class _SignInScreenState extends State<SignInScreen> {
                   SizedBox(height: 17,),
                   ElevatedButton(
                     onPressed: (){
-                      
+                      Get.to(OTPScreen(
+                        booll: false,
+                      ), transition: Transition.rightToLeft, duration: Duration(milliseconds: 500));
                     }, 
                     child: Text("Kod göndər",style: GoogleFonts.poppins(
                         fontSize: 20,
@@ -241,7 +244,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     
                     ),
                     SizedBox(
-                      height: Get.height * 0.06, 
+                      height: 30, 
                 ),
 
                     GestureDetector(
@@ -251,7 +254,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         fontSize: 15,
                         fontWeight: FontWeight.w500
                       ),)),
-                      SizedBox(height: 5,)
+                      SizedBox(height: 15,)
                 ],
               ),
             )

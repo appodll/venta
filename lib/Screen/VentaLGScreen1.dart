@@ -28,6 +28,7 @@ class Ventalgscreen1 extends StatelessWidget {
                   children: [
                     Container(
                       width: 80,
+                      height: 45,
                       child: CoolDropdown(
                         dropdownItemOptions: DropdownItemOptions(
                         alignment: Alignment.center,
@@ -94,11 +95,13 @@ class Ventalgscreen1 extends StatelessWidget {
                         onChange: (selectedItem) {
                           print(selectedItem);  
                         },
+                        
+                        
                       ),
                     ),
                     ElevatedButton(
                     onPressed: (){
-                      Get.offAll(SignInScreen(),transition: Transition.rightToLeft,
+                      Get.offAll(SignInScreen(),transition: Transition.fade,
                 duration: Duration(milliseconds: 500));
                     }, 
                     child: Text("Keç",style: GoogleFonts.poppins(
@@ -108,7 +111,7 @@ class Ventalgscreen1 extends StatelessWidget {
                       ),),
                     style: ButtonStyle(
                       
-                      minimumSize: WidgetStatePropertyAll(Size(80, 50)),
+                      minimumSize: WidgetStatePropertyAll(Size(80, 45)),
                       backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(231, 52, 110, 1)),
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
                     ),
@@ -155,7 +158,7 @@ class Ventalgscreen1 extends StatelessWidget {
               ),
               SizedBox(),
               GestureDetector(onTap: (){
-                Get.to(Ventalgscreen2(),transition: Transition.rightToLeft,
+                Get.to(Ventalgscreen2(),transition: Transition.fadeIn,
                 duration: Duration(milliseconds: 500));
               }, child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

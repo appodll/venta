@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:venta/Screen/SplashScreen.dart';
 
-
 void main(){
   runApp(Main());
 }

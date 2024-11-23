@@ -7,6 +7,8 @@ import 'package:flutter_advanced_segment/flutter_advanced_segment.dart';
 import 'package:flutter_toggle_button/flutter_toggle_button.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venta/Screen/Auth/OTPScreen.dart';
+import 'package:venta/Screen/Auth/PrivacypolicyScreen.dart';
 import 'package:venta/Screen/Auth/SignINScreen.dart';
 
 class Signupscreen extends StatefulWidget {
@@ -139,13 +141,9 @@ class _SignupscreenState extends State<Signupscreen> {
             SizedBox(height: 20,),
             Container(
               width: Get.width,
-              
               decoration: BoxDecoration(
                 color: Color.fromRGBO(247, 247, 248, 1),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15)
-                )
+                borderRadius: BorderRadius.circular(15)
               ),
               child: Column(
                 children: [
@@ -372,7 +370,9 @@ class _SignupscreenState extends State<Signupscreen> {
                   SizedBox(height: 25,),
                   ElevatedButton(
                     onPressed: (){
-                      
+                      Get.to(OTPScreen(
+                        booll: true,
+                      ), transition: Transition.rightToLeft, duration: Duration(milliseconds: 500));
                     }, 
                     child: Text("Kod göndər",style: GoogleFonts.poppins(
                         fontSize: 20,
@@ -410,15 +410,20 @@ class _SignupscreenState extends State<Signupscreen> {
                         
                         SizedBox(width: 3,),
                         Expanded(
-                          child: Text("Qaydalar və şərtlərlə tanış oldum və onları qəbul edirəm.",style: GoogleFonts.poppins(
-                            color: Color.fromRGBO(151, 154, 160, 1),
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: 0,
-                          ),
-                          textAlign: TextAlign.start, 
-                          softWrap: true, 
-                          overflow: TextOverflow.visible,
+                          child: GestureDetector(
+                            onTap: (){
+                              Get.to(Privacypolicyscreen());
+                            },
+                            child: Text("Qaydalar və şərtlərlə tanış oldum və onları qəbul edirəm.",style: GoogleFonts.poppins(
+                              color: Color.fromRGBO(151, 154, 160, 1),
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: 0,
+                            ),
+                            textAlign: TextAlign.start, 
+                            softWrap: true, 
+                            overflow: TextOverflow.visible,
+                            ),
                           ),
                         )
                       ],
@@ -443,9 +448,7 @@ class _SignupscreenState extends State<Signupscreen> {
                     ),
                     
                     ),
-                    SizedBox(
-                      height: Get.height * 0.06, 
-                ),
+                   SizedBox(height: 15,)
 
                    
                 ],
