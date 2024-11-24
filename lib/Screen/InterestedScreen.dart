@@ -3,6 +3,7 @@ import 'package:cool_dropdown/models/cool_dropdown_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venta/Screen/View/HomeScreen.dart';
 
 class Interestedscreen extends StatefulWidget {
   const Interestedscreen({super.key});
@@ -21,6 +22,7 @@ class _InterestedscreenState extends State<Interestedscreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            
             children: [
               Padding(
                     padding: EdgeInsets.all(10),
@@ -31,6 +33,7 @@ class _InterestedscreenState extends State<Interestedscreen> {
                 children: [
                   Container(
                     width: 80,
+                    height: 45,
                     child: CoolDropdown(
                       dropdownItemOptions: DropdownItemOptions(
                         alignment: Alignment.center,
@@ -183,7 +186,7 @@ class _InterestedscreenState extends State<Interestedscreen> {
                 }).toList(),
               ),
                 GestureDetector(onTap: (){
-                
+                Get.offAll(HomeScreen(),transition: Transition.rightToLeft,duration: Duration(milliseconds: 500));
               }, child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

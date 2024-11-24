@@ -94,6 +94,7 @@ class Ventalgscreen2 extends StatelessWidget {
                         defaultItem: CoolDropdownItem(label: 'Az', value: 'az'),
                         onChange: (selectedItem) {
                           print(selectedItem);  
+                          controller.close();
                         },
                       ),
                     ),

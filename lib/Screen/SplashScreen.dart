@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:venta/Controller/Stroge.dart';
+import 'package:venta/Screen/Auth/SignINScreen.dart';
 import 'package:venta/Screen/VentaLGScreen1.dart';
 
 class Splash extends StatefulWidget {
@@ -13,6 +16,7 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
+  final _stroge = Get.put(Stroge());
 
   @override
   void initState() {
@@ -26,7 +30,8 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
     );
     _controller.forward(); 
     Future.delayed(Duration(seconds: 3),(){
-      Get.off(Ventalgscreen1(),duration: Duration(milliseconds: 500), transition: Transition.rightToLeft);
+      _stroge.get_Stroge_screen();
+      
     });
   }
 

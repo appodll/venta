@@ -9,6 +9,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:venta/Screen/InterestedScreen.dart';
+import 'package:venta/Screen/View/HomeScreen.dart';
+import '../../Controller/Auth.dart';
+import '../../Controller/Stroge.dart';
 
 class OTPScreen extends StatefulWidget {
   final booll;
@@ -19,7 +22,10 @@ class OTPScreen extends StatefulWidget {
 }
 
 class _OTPScreenState extends State<OTPScreen> {
+  final _auth = Get.put(AuthController());
+  final _stroge = Get.put(Stroge());
   final TextEditingController code = TextEditingController();
+  var controller_dropdown = DropdownController();
   final List keyboard = [
     '1', '2', '3',
     '4', '5', '6',
@@ -43,6 +49,7 @@ class _OTPScreenState extends State<OTPScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
+                        height: 45,
                         width: 80,
                         child: CoolDropdown(
                           dropdownItemOptions: DropdownItemOptions(
@@ -93,10 +100,11 @@ class _OTPScreenState extends State<OTPScreen> {
                             CoolDropdownItem(label: 'En', value: 'en'),
                             CoolDropdownItem(label: 'Ru', value: 'ru'),
                           ],
-                          controller: DropdownController(),
+                          controller: controller_dropdown,
                           defaultItem: CoolDropdownItem(label: 'Az', value: 'az'),
                           onChange: (selectedItem) {
                             print(selectedItem);
+                            controller_dropdown.close();
                           },
                         ),
                       ),
@@ -142,9 +150,13 @@ class _OTPScreenState extends State<OTPScreen> {
                 PinCodeTextField(
                   onCompleted: (value) {
                     if(widget.booll){
-                      Get.off(Interestedscreen(),transition: Transition.rightToLeft,duration: Duration(milliseconds: 500));
+                      
+                      Get.off(Interestedscreen(),transition: Transition.fadeIn,duration: Duration(milliseconds: 500));
                     }else{
-
+                      Get.offAll(HomeScreen(),transition: Transition.rightToLeft,duration: Duration(milliseconds: 500));
+                      if(_auth.isChecked.value){
+                          _stroge.save_Data();
+                        }
                     }
                   },
                   

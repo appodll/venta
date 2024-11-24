@@ -23,6 +23,7 @@ class _SignupscreenState extends State<Signupscreen> {
   final ValueNotifier<String> segmentController = ValueNotifier<String>("Müştəri");
   bool isChecked = false;
   String segmentTitle = "Müştəri";
+  var controller_dropdown = DropdownController();
 
   @override
   void initState() {
@@ -40,6 +41,7 @@ class _SignupscreenState extends State<Signupscreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
       child: SafeArea(
         child: Column(
           children: [
@@ -50,6 +52,7 @@ class _SignupscreenState extends State<Signupscreen> {
                 children: [
                   Container(
                     width: 80,
+                    height: 45,
                     child: CoolDropdown(
                       dropdownItemOptions: DropdownItemOptions(
                         alignment: Alignment.center,
@@ -99,10 +102,11 @@ class _SignupscreenState extends State<Signupscreen> {
                         CoolDropdownItem(label: 'En', value: 'en'),
                         CoolDropdownItem(label: 'Ru', value: 'ru'),
                       ],
-                      controller: DropdownController(),
+                      controller: controller_dropdown,
                       defaultItem: CoolDropdownItem(label: 'Az', value: 'az'),
                       onChange: (selectedItem) {
                         print(selectedItem);
+                        controller_dropdown.close();
                       },
                     ),
                   ),
@@ -138,7 +142,7 @@ class _SignupscreenState extends State<Signupscreen> {
               letterSpacing: 0
             ),
             textAlign: TextAlign.center,),
-            SizedBox(height: 20,),
+            SizedBox(height: 30,),
             Container(
               width: Get.width,
               decoration: BoxDecoration(
