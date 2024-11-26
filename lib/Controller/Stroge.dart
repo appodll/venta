@@ -1,19 +1,17 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:venta/Screen/Auth/SignINScreen.dart';
-import 'package:venta/Screen/VentaLGScreen1.dart';
+import 'package:venta/Screen/VentaLGScreen.dart';
 import 'package:venta/Screen/View/HomeScreen.dart';
+import 'package:venta/SplashView.dart';
 
 class Stroge{
 
-  Future<void>lGScreenSave()async{
+  Future<void>save_Data(key,value,type)async{
     final prefs = await SharedPreferences.getInstance();
-    prefs.setBool("LGScreen", true);
-  }
-
-  Future<void>save_Data()async{
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setBool("user", true);
+    if (type == "bool"){
+      prefs.setBool(key, value);
+    }
   }
 
   Future<void>get_Stroge_screen()async{
@@ -24,9 +22,9 @@ class Stroge{
       }else{
         if (lgScreenData == true){
         Get.off(SignInScreen(),duration: Duration(milliseconds: 500), transition: Transition.rightToLeft);
-      }else{
-        Get.off(Ventalgscreen1(),duration: Duration(milliseconds: 500), transition: Transition.rightToLeft);
-      }
+        }else{
+          Get.off(Splashview(),duration: Duration(milliseconds: 500), transition: Transition.rightToLeft);
+        }
       }
       
   }

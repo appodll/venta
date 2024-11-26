@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:venta/Controller/Stroge.dart';
 import 'package:venta/Screen/Auth/SignINScreen.dart';
-import 'package:venta/Screen/VentaLGScreen1.dart';
+import 'package:venta/Screen/VentaLGScreen.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});

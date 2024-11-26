@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:venta/Constant/language_selected.dart';
 import 'package:venta/Screen/InterestedScreen.dart';
 import 'package:venta/Screen/View/HomeScreen.dart';
 import '../../Controller/Auth.dart';
@@ -48,66 +49,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: 45,
-                        width: 80,
-                        child: CoolDropdown(
-                          dropdownItemOptions: DropdownItemOptions(
-                            alignment: Alignment.center,
-                            boxDecoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(
-                                  color: Color.fromRGBO(231, 52, 110, 1),
-                                  width: 1.5),
-                            ),
-                            textStyle: TextStyle(
-                              fontSize: 14,
-                              color: Color.fromRGBO(231, 52, 110, 1),
-                              fontWeight: FontWeight.bold,
-                            ),
-                            selectedTextStyle: TextStyle(
-                              fontSize: 14,
-                              color: Color.fromRGBO(231, 52, 110, 1),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          resultOptions: ResultOptions(
-                            render: ResultRender.all,
-                            openBoxDecoration: BoxDecoration(
-                                border: Border.all(
-                                    color: Color.fromRGBO(176, 176, 176, 1)),
-                                borderRadius: BorderRadius.circular(10)),
-                            boxDecoration: BoxDecoration(
-                                border: Border.all(
-                                    color: Color.fromRGBO(176, 176, 176, 1)),
-                                borderRadius: BorderRadius.circular(5)),
-                            textStyle: TextStyle(
-                              color: Color.fromRGBO(231, 52, 110, 1),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                            ),
-                            icon: Icon(
-                              Icons.arrow_drop_down,
-                              color: Color.fromRGBO(231, 52, 110, 1),
-                            ),
-                          ),
-                          dropdownOptions: DropdownOptions(
-                              borderSide: BorderSide(color: Colors.white),
-                              borderRadius: BorderRadius.circular(15)),
-                          dropdownList: [
-                            CoolDropdownItem(label: 'Az', value: 'az'),
-                            CoolDropdownItem(label: 'En', value: 'en'),
-                            CoolDropdownItem(label: 'Ru', value: 'ru'),
-                          ],
-                          controller: controller_dropdown,
-                          defaultItem: CoolDropdownItem(label: 'Az', value: 'az'),
-                          onChange: (selectedItem) {
-                            print(selectedItem);
-                            controller_dropdown.close();
-                          },
-                        ),
-                      ),
+                      LanguageSelected(),
                       Row(
                         children: [
                           Container(
@@ -155,7 +97,9 @@ class _OTPScreenState extends State<OTPScreen> {
                     }else{
                       Get.offAll(HomeScreen(),transition: Transition.rightToLeft,duration: Duration(milliseconds: 500));
                       if(_auth.isChecked.value){
-                          _stroge.save_Data();
+                          _stroge.save_Data(
+                            "user", true, "bool"
+                          );
                         }
                     }
                   },

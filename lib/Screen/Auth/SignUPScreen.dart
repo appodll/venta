@@ -7,6 +7,7 @@ import 'package:flutter_advanced_segment/flutter_advanced_segment.dart';
 import 'package:flutter_toggle_button/flutter_toggle_button.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venta/Constant/language_selected.dart';
 import 'package:venta/Screen/Auth/OTPScreen.dart';
 import 'package:venta/Screen/Auth/PrivacypolicyScreen.dart';
 import 'package:venta/Screen/Auth/SignINScreen.dart';
@@ -50,66 +51,7 @@ class _SignupscreenState extends State<Signupscreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    width: 80,
-                    height: 45,
-                    child: CoolDropdown(
-                      dropdownItemOptions: DropdownItemOptions(
-                        alignment: Alignment.center,
-                        boxDecoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                              color: Color.fromRGBO(231, 52, 110, 1),
-                              width: 1.5),
-                        ),
-                        textStyle: TextStyle(
-                          fontSize: 14,
-                          color: Color.fromRGBO(231, 52, 110, 1),
-                          fontWeight: FontWeight.bold,
-                        ),
-                        selectedTextStyle: TextStyle(
-                          fontSize: 14,
-                          color: Color.fromRGBO(231, 52, 110, 1),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      resultOptions: ResultOptions(
-                        render: ResultRender.all,
-                        openBoxDecoration: BoxDecoration(
-                            border: Border.all(
-                                color: Color.fromRGBO(176, 176, 176, 1)),
-                            borderRadius: BorderRadius.circular(10)),
-                        boxDecoration: BoxDecoration(
-                            border: Border.all(
-                                color: Color.fromRGBO(176, 176, 176, 1)),
-                            borderRadius: BorderRadius.circular(5)),
-                        textStyle: TextStyle(
-                          color: Color.fromRGBO(231, 52, 110, 1),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                        ),
-                        icon: Icon(
-                          Icons.arrow_drop_down,
-                          color: Color.fromRGBO(231, 52, 110, 1),
-                        ),
-                      ),
-                      dropdownOptions: DropdownOptions(
-                          borderSide: BorderSide(color: Colors.white),
-                          borderRadius: BorderRadius.circular(15)),
-                      dropdownList: [
-                        CoolDropdownItem(label: 'Az', value: 'az'),
-                        CoolDropdownItem(label: 'En', value: 'en'),
-                        CoolDropdownItem(label: 'Ru', value: 'ru'),
-                      ],
-                      controller: controller_dropdown,
-                      defaultItem: CoolDropdownItem(label: 'Az', value: 'az'),
-                      onChange: (selectedItem) {
-                        print(selectedItem);
-                        controller_dropdown.close();
-                      },
-                    ),
-                  ),
+                  LanguageSelected(),
                   Row(
                     children: [
                       Container(

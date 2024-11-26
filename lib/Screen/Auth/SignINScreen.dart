@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venta/Constant/language_selected.dart';
 import 'package:venta/Controller/Auth.dart';
 import 'package:venta/Controller/Stroge.dart';
 import 'package:venta/Screen/Auth/OTPScreen.dart';
@@ -28,7 +29,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   void initState() {
-    _stroge.lGScreenSave();
+    _stroge.save_Data("LGScreen", true, "bool");
     super.initState();
   }
 
@@ -47,66 +48,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      height: 45,
-                      width: 80,
-                      child: CoolDropdown(
-                        dropdownItemOptions: DropdownItemOptions(
-                          alignment: Alignment.center,
-                          boxDecoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                                color: Color.fromRGBO(231, 52, 110, 1),
-                                width: 1.5),
-                          ),
-                          textStyle: TextStyle(
-                            fontSize: 14,
-                            color: Color.fromRGBO(231, 52, 110, 1),
-                            fontWeight: FontWeight.bold,
-                          ),
-                          selectedTextStyle: TextStyle(
-                            fontSize: 14,
-                            color: Color.fromRGBO(231, 52, 110, 1),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        resultOptions: ResultOptions(
-                          render: ResultRender.all,
-                          openBoxDecoration: BoxDecoration(
-                              border: Border.all(
-                                  color: Color.fromRGBO(176, 176, 176, 1)),
-                              borderRadius: BorderRadius.circular(10)),
-                          boxDecoration: BoxDecoration(
-                              border: Border.all(
-                                  color: Color.fromRGBO(176, 176, 176, 1)),
-                              borderRadius: BorderRadius.circular(5)),
-                          textStyle: TextStyle(
-                            color: Color.fromRGBO(231, 52, 110, 1),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                          ),
-                          icon: Icon(
-                            Icons.arrow_drop_down,
-                            color: Color.fromRGBO(231, 52, 110, 1),
-                          ),
-                        ),
-                        dropdownOptions: DropdownOptions(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(15)),
-                        dropdownList: [
-                          CoolDropdownItem(label: 'Az', value: 'az'),
-                          CoolDropdownItem(label: 'En', value: 'en'),
-                          CoolDropdownItem(label: 'Ru', value: 'ru'),
-                        ],
-                        controller: controller_dropdown,
-                        defaultItem: CoolDropdownItem(label: 'Az', value: 'az'),
-                        onChange: (selectedItem) {
-                          print(selectedItem);
-                          controller_dropdown.close();
-                        },
-                      ),
-                    ),
+                    LanguageSelected(),
                     Row(
                       children: [
                         Container(
