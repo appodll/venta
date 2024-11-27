@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:venta/Screen/View/Dashboard.dart';
-import 'package:venta/Screen/View/SearchScreen.dart';
+import 'package:venta/Screen/View/Tabs/Dashboard.dart';
+import 'package:venta/Screen/View/Tabs/SearchScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

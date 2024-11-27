@@ -3,6 +3,7 @@ import 'package:cool_dropdown/models/cool_dropdown_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venta/Constant/StaticText.dart';
 import 'package:venta/Constant/language_selected.dart';
 import 'package:venta/Screen/View/HomeScreen.dart';
 
@@ -71,13 +72,7 @@ class _InterestedscreenState extends State<Interestedscreen> {
                   ),
                 ),
               SizedBox(height: 35,),
-                Text("Xoş gəldin! \nSəni aramızda görməkdən məmnunuq.",
-                style: GoogleFonts.notoSans(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16
-                ),
-                
-                textAlign: TextAlign.center,),
+                Statictext(text: "Xoş gəldin! \nSəni aramızda görməkdən məmnunuq.", size: 16, fontWeight: FontWeight.w600,font_type: "notoSans",align: TextAlign.center,),
                 SizedBox(height: 35,),
                  Wrap(
                 spacing: 3,

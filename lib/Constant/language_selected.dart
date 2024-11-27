@@ -4,7 +4,7 @@ import 'package:cool_dropdown/options/dropdown_options.dart';
 import 'package:flutter/material.dart';
 
 class LanguageSelected extends StatelessWidget {
-   LanguageSelected({super.key});
+  LanguageSelected({super.key});
   final controller = DropdownController();
   @override
   Widget build(BuildContext context) {

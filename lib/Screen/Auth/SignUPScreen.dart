@@ -3,10 +3,16 @@ import 'package:cool_dropdown/models/cool_dropdown_item.dart';
 import 'package:cool_dropdown/options/dropdown_options.dart';
 import 'package:custom_check_box/custom_check_box.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_advanced_segment/flutter_advanced_segment.dart';
 import 'package:flutter_toggle_button/flutter_toggle_button.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venta/Constant/ButtonElement.dart';
+import 'package:venta/Constant/CheckBoxElement.dart';
+import 'package:venta/Constant/InputElement.dart';
+import 'package:venta/Constant/StaticText.dart';
+import 'package:venta/Constant/ToggleElement.dart';
 import 'package:venta/Constant/language_selected.dart';
 import 'package:venta/Screen/Auth/OTPScreen.dart';
 import 'package:venta/Screen/Auth/PrivacypolicyScreen.dart';
@@ -26,11 +32,18 @@ class _SignupscreenState extends State<Signupscreen> {
   String segmentTitle = "Müştəri";
   var controller_dropdown = DropdownController();
 
+  final TextEditingController fin_code = TextEditingController();
+  final TextEditingController seria = TextEditingController();
+  final TextEditingController voen = TextEditingController();
+
   @override
   void initState() {
      segmentController.addListener(() {
       setState(() {
         segmentTitle = segmentController.value;
+        fin_code.clear();
+        seria.clear();
+        voen.clear();
       });
     
   });
@@ -73,18 +86,18 @@ class _SignupscreenState extends State<Signupscreen> {
               ),
             ),
             SizedBox(height: 80,),
-            Text("Xoş gəldiniz!",style: GoogleFonts.poppins(
-              fontSize: 20,
-              fontWeight: FontWeight.w600
-            ),),
+            Statictext(text: "Xoş gəldiniz!", size: 20, fontWeight: FontWeight.w600),
             SizedBox(height: 15,),
-            Text("Qeydiyyatdan keç, yeni vakansiyalardan  \nilk sən xəbərdar ol!",style: GoogleFonts.poppins(
-              fontSize: 15.5,
-              fontWeight: FontWeight.w500,
-              letterSpacing: 0
-            ),
-            textAlign: TextAlign.center,),
+
+            Statictext(
+            text: "Qeydiyyatdan keç, yeni vakansiyalardan  \nilk sən xəbərdar ol!", 
+            size: 15.5, 
+            fontWeight: FontWeight.w500,
+            letterspacing: 0,
+            align: TextAlign.center,),
+
             SizedBox(height: 30,),
+
             Container(
               width: Get.width,
               decoration: BoxDecoration(
@@ -94,265 +107,94 @@ class _SignupscreenState extends State<Signupscreen> {
               child: Column(
                 children: [
                   SizedBox(height: 25,),
+
                   Center(
-        child: Container(
-          width: Get.width - 50, 
-          height: 60, 
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10), 
-            
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 8, 
-              ),
-            ],
-          ),
-          child: AdvancedSegment(
-            borderRadius: BorderRadius.circular(10),
-            
-            controller: segmentController,
-            segments: {
-              'Müştəri': 'Müştəri',
-              'Partnyor': 'Partnyor',
-            },
-            activeStyle: GoogleFonts.poppins(
-              color: Colors.white,
-              fontSize: 18, 
-            ),
-            inactiveStyle: GoogleFonts.poppins(
-              color: Color.fromRGBO(231, 52, 110, 1),
-              fontSize: 18,
-            ),
-            backgroundColor: Colors.white,
-            sliderColor: Color.fromRGBO(231, 52, 110, 1),
-            
-            
-          ),
-        ),
-      ),
+                    child: Toggleelement(
+                      controller: segmentController, 
+                      inactiveColor: Color.fromRGBO(231, 52, 110, 1), 
+                      sliderColor: Color.fromRGBO(231, 52, 110, 1), 
+                      segments: {
+                        'Müştəri': 'Müştəri',
+                        'Partnyor': 'Partnyor',
+                      }
+                                ),
+                  ),
+                  
                   segmentTitle == "Müştəri"?Column(
                     children: [
                       SizedBox(height: 35,),
-                  Container(
-                    width: Get.width - 50,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        suffixIcon: Image.asset("lib/Asset/Vector.png",),
-                        
-                        labelText: "İdentifikasiya nömrəsi",
-                        labelStyle: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: Color.fromRGBO(151, 154, 160, 1),
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 0
+                      Inputelement(
+                        label: "İdentifikasiya nömrəsi", 
+                        suffixIcon: Image.asset("lib/Asset/Vector.png",), 
+                        controller: fin_code,
+                        inputFormatters: [
+                          LengthLimitingTextInputFormatter(7)
+                        ],
+                        onChanged: (value){
+                          setState(() {
+                            fin_code.text = value.toUpperCase();
+                            fin_code.selection = TextSelection.collapsed(offset: fin_code.text.length);
+                          });
+                        },
                         ),
-                        floatingLabelStyle: GoogleFonts.poppins(
-                          fontSize: 18, 
-                          color: Color.fromRGBO(231, 52, 110, 1), 
-                          fontWeight: FontWeight.w500,
-                        ),
-                         
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: Color.fromRGBO(231, 52, 110, 1)
-                          )
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: Color.fromRGBO(231, 52, 110, 1)
-                          )
+                      SizedBox(height: 20,),
+                      Inputelement(
+                        label: "Seriya nömrəsi", 
+                        suffixIcon: Image.asset("lib/Asset/Vector.png",), 
+                        controller: seria
                         )
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20,),
-                  Container(
-                    width: Get.width - 50,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        suffixIcon: Image.asset("lib/Asset/Vector.png",),
-                        
-                        labelText: "Seriya nömrəsi",
-                        labelStyle: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: Color.fromRGBO(151, 154, 160, 1),
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 0
-                        ),
-                        floatingLabelStyle: GoogleFonts.poppins(
-                          fontSize: 18, 
-                          color: Color.fromRGBO(231, 52, 110, 1), 
-                          fontWeight: FontWeight.w500,
-                        ),
-                         
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: Color.fromRGBO(231, 52, 110, 1)
-                          )
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: Color.fromRGBO(231, 52, 110, 1)
-                          )
-                        )
-                      ),
-                    ),
-                  ),
                     ],
                   ):Column(
                     children: [
                       SizedBox(height: 35,),
-                  Container(
-                    width: Get.width - 50,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        suffixIcon: Image.asset("lib/Asset/Vector.png",),
-                        
-                        labelText: "İdentifikasiya nömrəsi",
-                        labelStyle: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: Color.fromRGBO(151, 154, 160, 1),
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 0
+                  Inputelement(
+                        label: "İdentifikasiya nömrəsi", 
+                        suffixIcon: Image.asset("lib/Asset/Vector.png",), 
+                        controller: fin_code,
+                        inputFormatters: [
+                          LengthLimitingTextInputFormatter(7)
+                        ],
+                        onChanged: (value){
+                          setState(() {
+                            fin_code.text = value.toUpperCase();
+                            fin_code.selection = TextSelection.collapsed(offset: fin_code.text.length);
+                          });
+                        },
                         ),
-                        floatingLabelStyle: GoogleFonts.poppins(
-                          fontSize: 18, 
-                          color: Color.fromRGBO(231, 52, 110, 1), 
-                          fontWeight: FontWeight.w500,
-                        ),
-                         
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: Color.fromRGBO(231, 52, 110, 1)
-                          )
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: Color.fromRGBO(231, 52, 110, 1)
-                          )
-                        )
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20,),
-                  Container(
-                    width: Get.width - 50,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        suffixIcon: Image.asset("lib/Asset/Vector.png",),
-                        
-                        labelText: "VÖEN nömrəsi",
-                        labelStyle: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: Color.fromRGBO(151, 154, 160, 1),
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 0
-                        ),
-                        floatingLabelStyle: GoogleFonts.poppins(
-                          fontSize: 18, 
-                          color: Color.fromRGBO(231, 52, 110, 1), 
-                          fontWeight: FontWeight.w500,
-                        ),
-                         
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: Color.fromRGBO(231, 52, 110, 1)
-                          )
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: Color.fromRGBO(231, 52, 110, 1)
-                          )
-                        )
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20,),
-                  Container(
-                    width: Get.width - 50,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        suffixIcon: Image.asset("lib/Asset/Vector.png",),
-                        
-                        labelText: "Seriya nömrəsi",
-                        labelStyle: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: Color.fromRGBO(151, 154, 160, 1),
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 0
-                        ),
-                        floatingLabelStyle: GoogleFonts.poppins(
-                          fontSize: 18, 
-                          color: Color.fromRGBO(231, 52, 110, 1), 
-                          fontWeight: FontWeight.w500,
-                        ),
-                         
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: Color.fromRGBO(231, 52, 110, 1)
-                          )
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: Color.fromRGBO(231, 52, 110, 1)
-                          )
-                        )
-                      ),
-                    ),
-                  ),
+                        SizedBox(height: 20,),
+                        Inputelement(
+                              label: "VÖEN nömrəsi", 
+                              suffixIcon: Image.asset("lib/Asset/Vector.png",), 
+                              controller: voen
+                              ),
+                        SizedBox(height: 20,),
+                        Inputelement(
+                              label: "Seriya nömrəsi", 
+                              suffixIcon: Image.asset("lib/Asset/Vector.png",), 
+                              controller: seria
+                              )
                     ],
                   ),
                   SizedBox(height: 25,),
-                  ElevatedButton(
-                    onPressed: (){
+
+                  Buttonelement(onPressed: (){
                       Get.to(OTPScreen(
                         booll: true,
                       ), transition: Transition.rightToLeft, duration: Duration(milliseconds: 500));
-                    }, 
-                    child: Text("Kod göndər",style: GoogleFonts.poppins(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500
-                        
-                      ),),
-                    style: ButtonStyle(
-                      
-                      minimumSize: WidgetStatePropertyAll(Size(Get.width - 50, 55)),
-                      backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(231, 52, 110, 1)),
-                      shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
-                    ),
-                    
-                    ),
+                    }, title: "Kod göndər"),
+                  
                   SizedBox(height: 17,),
                   Container(
                     width: Get.width - 30,
                     child: Row(
                       children: [
-                        CustomCheckBox(
-                          value: isChecked,
-                          shouldShowBorder: true,
-                          borderColor: Color.fromRGBO(231, 52, 110, 1),
-                          checkedFillColor: Color.fromRGBO(231, 52, 110, 1),
-                          borderRadius: 7,
-                          borderWidth: 2.5,
-                          checkBoxSize: 20,
-                          onChanged: (val) {
+                        Checkboxelement(
+                          value: isChecked, 
+                          onChange: (val) {
                             setState(() {
                               isChecked = val;
                             });
-                          },
-                        ),
+                          },),
                         
                         SizedBox(width: 3,),
                         Expanded(
@@ -360,40 +202,26 @@ class _SignupscreenState extends State<Signupscreen> {
                             onTap: (){
                               Get.to(Privacypolicyscreen());
                             },
-                            child: Text("Qaydalar və şərtlərlə tanış oldum və onları qəbul edirəm.",style: GoogleFonts.poppins(
-                              color: Color.fromRGBO(151, 154, 160, 1),
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 0,
-                            ),
-                            textAlign: TextAlign.start, 
-                            softWrap: true, 
+                            child: Statictext(text: "Qaydalar və şərtlərlə tanış oldum və onları qəbul edirəm.", 
+                            size: 13, 
+                            fontWeight: FontWeight.w500,
+                            letterspacing: 0,
+                            align: TextAlign.start,
+                            color: Color.fromRGBO(151, 154, 160, 1),
                             overflow: TextOverflow.visible,
-                            ),
+                            )
                           ),
                         )
                       ],
                     ),
                   ),
                   SizedBox(height: 20,),
-                  ElevatedButton(
-                    onPressed: (){
+
+                  Buttonelement(onPressed: (){
                       Get.off(SignInScreen(), transition: Transition.leftToRight,duration: Duration(milliseconds: 500));
-                    }, 
-                    child: Text("Daxil ol",style: GoogleFonts.poppins(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500
-                        
-                      ),),
-                    style: ButtonStyle(
-                      
-                      minimumSize: WidgetStatePropertyAll(Size(Get.width - 50, 55)),
-                      backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(241, 128, 165, 1)),
-                      shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
-                    ),
-                    
-                    ),
+                    }, title: "Daxil ol",
+                    backgroundColor: Color.fromRGBO(241, 128, 165, 1),),
+                  
                    SizedBox(height: 15,)
 
                    
