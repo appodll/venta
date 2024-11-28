@@ -2,6 +2,7 @@ import 'package:cool_dropdown/cool_dropdown.dart';
 import 'package:cool_dropdown/models/cool_dropdown_item.dart';
 import 'package:cool_dropdown/options/dropdown_options.dart';
 import 'package:flutter/material.dart';
+import 'package:venta/Theme/ThemeService.dart';
 
 class LanguageSelected extends StatelessWidget {
   LanguageSelected({super.key});
@@ -18,16 +19,16 @@ class LanguageSelected extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(8),
             border:
-                Border.all(color: Color.fromRGBO(231, 52, 110, 1), width: 1.5),
+                Border.all(color: primarycolor, width: 1.5),
           ),
           textStyle: TextStyle(
             fontSize: 14,
-            color: Color.fromRGBO(231, 52, 110, 1),
+            color: primarycolor,
             fontWeight: FontWeight.bold,
           ),
           selectedTextStyle: TextStyle(
             fontSize: 14,
-            color: Color.fromRGBO(231, 52, 110, 1),
+            color: primarycolor,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -40,13 +41,13 @@ class LanguageSelected extends StatelessWidget {
               border: Border.all(color: Color.fromRGBO(176, 176, 176, 1)),
               borderRadius: BorderRadius.circular(5)),
           textStyle: TextStyle(
-            color: Color.fromRGBO(231, 52, 110, 1),
+            color: primarycolor,
             fontWeight: FontWeight.bold,
             fontSize: 14,
           ),
           icon: Icon(
             Icons.arrow_drop_down,
-            color: Color.fromRGBO(231, 52, 110, 1),
+            color: primarycolor,
           ),
         ),
         dropdownOptions: DropdownOptions(

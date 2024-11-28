@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:venta/Theme/ThemeService.dart';
 
 class Pininputelement extends StatelessWidget{
   final controller;
@@ -26,7 +27,7 @@ class Pininputelement extends StatelessWidget{
                       disabledColor: Color.fromRGBO(176, 176, 176, 1),
                       inactiveColor: Color.fromRGBO(176, 176, 176, 1),
                       activeColor: Color.fromRGBO(176, 176, 176, 1),
-                      selectedColor: Color.fromRGBO(231, 52, 110, 1),
+                      selectedColor: primarycolor,
                       errorBorderColor: Colors.red,
                       fieldHeight: 50,
                       fieldWidth: 50,
@@ -37,7 +38,7 @@ class Pininputelement extends StatelessWidget{
                   ),
                   textStyle: GoogleFonts.poppins(
                     fontSize: 18,
-                    color: Color.fromRGBO(231, 52, 110, 1),
+                    color: primarycolor,
                   ),
                   
                   );

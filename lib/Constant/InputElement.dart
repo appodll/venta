@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venta/Theme/ThemeService.dart';
 
 class Inputelement extends StatelessWidget {
   final label;
@@ -34,16 +35,16 @@ class Inputelement extends StatelessWidget {
                 letterSpacing: 0),
             floatingLabelStyle: GoogleFonts.poppins(
               fontSize: 18,
-              color: Color.fromRGBO(231, 52, 110, 1),
+              color: primarycolor,
               fontWeight: FontWeight.w500,
             ),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: Color.fromRGBO(231, 52, 110, 1))),
+                borderSide: BorderSide(color: primarycolor)),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide:
-                    BorderSide(color: Color.fromRGBO(231, 52, 110, 1)))),
+                    BorderSide(color: primarycolor))),
       ),
     );
   }

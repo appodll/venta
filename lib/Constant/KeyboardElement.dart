@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:venta/Controller/Auth.dart';
 
+import '../Theme/ThemeService.dart';
+
 class Keyboardelement extends StatefulWidget{
   final code;
   const Keyboardelement({super.key, required this.code});
@@ -65,7 +67,7 @@ class _KeyboardelementState extends State<Keyboardelement> {
                                       children: [
                                         keyboard[index] == 'clear'?Image.asset("lib/Asset/close.png"):keyboard[index] != 'back'?Text(keyboard[index], style: GoogleFonts.poppins(
                                           fontSize: 20,
-                                          color: Color.fromRGBO(231, 52, 110, 1),
+                                          color: primarycolor,
                                           fontWeight: FontWeight.w600
                                         ),):Image.asset("lib/Asset/delete.png")
                                       ],

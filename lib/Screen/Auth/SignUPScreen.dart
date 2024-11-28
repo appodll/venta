@@ -18,6 +18,8 @@ import 'package:venta/Screen/Auth/OTPScreen.dart';
 import 'package:venta/Screen/Auth/PrivacypolicyScreen.dart';
 import 'package:venta/Screen/Auth/SignINScreen.dart';
 
+import '../../Theme/ThemeService.dart';
+
 class Signupscreen extends StatefulWidget {
   const Signupscreen({super.key});
 
@@ -111,8 +113,8 @@ class _SignupscreenState extends State<Signupscreen> {
                   Center(
                     child: Toggleelement(
                       controller: segmentController, 
-                      inactiveColor: Color.fromRGBO(231, 52, 110, 1), 
-                      sliderColor: Color.fromRGBO(231, 52, 110, 1), 
+                      inactiveColor: primarycolor, 
+                      sliderColor: primarycolor, 
                       segments: {
                         'Müştəri': 'Müştəri',
                         'Partnyor': 'Partnyor',
@@ -220,7 +222,7 @@ class _SignupscreenState extends State<Signupscreen> {
                   Buttonelement(onPressed: (){
                       Get.off(SignInScreen(), transition: Transition.leftToRight,duration: Duration(milliseconds: 500));
                     }, title: "Daxil ol",
-                    backgroundColor: Color.fromRGBO(241, 128, 165, 1),),
+                    backgroundColor: primarycolor,),
                   
                    SizedBox(height: 15,)
 

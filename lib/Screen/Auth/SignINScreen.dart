@@ -16,6 +16,7 @@ import 'package:venta/Controller/Auth.dart';
 import 'package:venta/Controller/Stroge.dart';
 import 'package:venta/Screen/Auth/OTPScreen.dart';
 import 'package:venta/Screen/Auth/SignUPScreen.dart';
+import 'package:venta/Theme/ThemeService.dart';
 
 class SignInScreen extends StatefulWidget {
   
@@ -142,7 +143,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         ), transition: Transition.rightToLeft, duration: Duration(milliseconds: 500));
                     }:null, 
                     title: "Kod göndər",
-                    backgroundColor: errorBool == false?Color.fromRGBO(231, 52, 110, 1):Color.fromRGBO(231, 52, 110, 0.6),
+                    backgroundColor: errorBool == false?primarycolor:Color.fromRGBO(231, 52, 110, 0.6),
                     ),
                     
                       SizedBox(height: 25,),
@@ -152,7 +153,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         Get.to(Signupscreen(), transition: Transition.rightToLeft,duration: Duration(milliseconds: 500));
                       }, 
                       title: "Qeydiyyatdan keç",
-                      backgroundColor: Color.fromRGBO(231, 52, 110, 1),
+                      backgroundColor: primarycolor,
                       ),
 
                       SizedBox(

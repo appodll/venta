@@ -3,8 +3,11 @@ import 'package:cool_dropdown/models/cool_dropdown_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venta/Constant/ButtonElement.dart';
 import 'package:venta/Constant/StaticText.dart';
+import 'package:venta/Constant/TagButtonElement.dart';
 import 'package:venta/Constant/language_selected.dart';
+import 'package:venta/Controller/Stroge.dart';
 import 'package:venta/Screen/View/HomeScreen.dart';
 
 class Interestedscreen extends StatefulWidget {
@@ -15,7 +18,7 @@ class Interestedscreen extends StatefulWidget {
 }
 
 class _InterestedscreenState extends State<Interestedscreen> {
-  final _selectedButtons = ["Təlim proqramları","Online dərslər","Vakansiyalar"];
+  final _stroge = Get.put(Stroge());
 
   @override
   Widget build(BuildContext context) {
@@ -72,59 +75,17 @@ class _InterestedscreenState extends State<Interestedscreen> {
                   ),
                 ),
               SizedBox(height: 35,),
+
                 Statictext(text: "Xoş gəldin! \nSəni aramızda görməkdən məmnunuq.", size: 16, fontWeight: FontWeight.w600,font_type: "notoSans",align: TextAlign.center,),
+                
                 SizedBox(height: 35,),
-                 Wrap(
-                spacing: 3,
-                runSpacing: 3,
-                children: [
-                  "Təlim proqramları",
-                  "Xəbərlər",
-                  "Karyera məsləhətləri",
-                  "İmtahanlar",
-                  "Təcrübə proqramları",
-                  "Online dərslər",
-                  "Sertifikat imkanları",
-                  "Vakansiyalar",
-                  "Uğur hekayələri",
-                  "Mentorluq proqramları",
-                  "Səyahət imkanları",
-                  "İnteraktiv oyunlar",
-                ].map((title) {
-                  return OutlinedButton(
-                    
-                  onPressed: () {
-                    setState(() {
-                      if(_selectedButtons.contains(title)){
-                        _selectedButtons.remove(title);
-                      }else{
-                        _selectedButtons.add(title);
-                      }
-                    });
-                  },
-                  style: OutlinedButton.styleFrom(
-                    
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    side: !_selectedButtons.contains(title)?BorderSide(color: Colors.grey, width: 1):BorderSide(color: Color.fromRGBO(231, 52, 110, 1), width: 0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    backgroundColor: !_selectedButtons.contains(title)?Colors.white:Color.fromRGBO(231, 52, 110, 1),
-                  ),
-                  child: Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      color: !_selectedButtons.contains(title)?Color.fromRGBO(231, 52, 110, 1):Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                );
-                }).toList(),
-              ),
-                GestureDetector(onTap: (){
+
+                 Tagbuttonelement(),
+
+                GestureDetector(onTap: ()async{
+
                 Get.offAll(HomeScreen(),transition: Transition.rightToLeft,duration: Duration(milliseconds: 500));
+                _stroge.save_Data("user", true, 'bool');
               }, child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -8,31 +8,61 @@ class Buttonelement extends StatelessWidget {
   final backgroundColor;
   final width;
   final height;
+  final type;
+  final side;
+  final text_color;
 
   Buttonelement(
-      {
-      required this.onPressed,
+      {required this.onPressed,
       required this.title,
       this.backgroundColor = const Color.fromRGBO(231, 52, 110, 1),
       this.width = 0.0,
-      this.height = 55.0
-      });
+      this.height = 55.0,
+      this.type = 'elevated',
+      this.side,
+      this.text_color});
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: Text(
-        title,
-        style: GoogleFonts.poppins(
-            fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
-      ),
-      style: ButtonStyle(
-        minimumSize: WidgetStatePropertyAll(Size(width == 0.0?Get.width - 50:width, height)),
-        backgroundColor: WidgetStatePropertyAll(backgroundColor),
-        shape: WidgetStatePropertyAll(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
-      ),
-    );
+    return type == 'elevated'
+        ? ElevatedButton(
+            onPressed: onPressed,
+            child: Text(
+              title,
+              style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500),
+            ),
+            style: ButtonStyle(
+              minimumSize: WidgetStatePropertyAll(
+                  Size(width == 0.0 ? Get.width - 50 : width, height)),
+              backgroundColor: WidgetStatePropertyAll(backgroundColor),
+              shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8))),
+            ),
+          )
+        : type == 'outlined'
+            ? OutlinedButton(
+                onPressed: onPressed,
+                style: OutlinedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                  side: side,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  backgroundColor: backgroundColor,
+                ),
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    color: text_color,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              )
+            : Container();
   }
 }

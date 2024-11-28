@@ -1,5 +1,6 @@
 import 'package:custom_check_box/custom_check_box.dart';
 import 'package:flutter/material.dart';
+import 'package:venta/Theme/ThemeService.dart';
 
 class Checkboxelement extends StatelessWidget {
   final value;
@@ -12,8 +13,8 @@ class Checkboxelement extends StatelessWidget {
     return CustomCheckBox(
       value: value,
       shouldShowBorder: true,
-      borderColor: Color.fromRGBO(231, 52, 110, 1),
-      checkedFillColor: Color.fromRGBO(231, 52, 110, 1),
+      borderColor: primarycolor,
+      checkedFillColor: primarycolor,
       borderRadius: 7,
       borderWidth: 2.5,
       checkBoxSize: 20,

@@ -9,17 +9,19 @@ class Statictext extends StatelessWidget {
   final align;
   final overflow;
   final font_type;
+  final maxlines;
   final double letterspacing;
 
   Statictext(
       {required this.text,
       required this.size,
-      required this.fontWeight,
-      this.color = Colors.black,
+      this.fontWeight,
+      this.color,
       this.align = TextAlign.start,
       this.overflow = TextOverflow.visible,
       this.letterspacing = 0,
-      this.font_type = 'poppins'});
+      this.font_type = 'poppins',
+      this.maxlines});
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +46,7 @@ class Statictext extends StatelessWidget {
                   letterSpacing: letterspacing),
       textAlign: align,
       overflow: overflow,
+      maxLines: maxlines
     );
   }
 }
