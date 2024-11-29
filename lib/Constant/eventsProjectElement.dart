@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:venta/Constant/StaticText.dart';
+import 'package:venta/Theme/ThemeService.dart';
 
 class EventProjectCard extends StatelessWidget {
   final image;
@@ -7,13 +8,20 @@ class EventProjectCard extends StatelessWidget {
   final description;
   final views;
   final reviews;
+  final type;
+  final proje_type;
+  final proje_owner_logo;
 
   const EventProjectCard({super.key, 
   required this.image, 
   required this.title, 
   required this.description, 
   required this.views, 
-  required this.reviews, });
+  required this.reviews, 
+  this.type,
+  this.proje_type,
+  this.proje_owner_logo
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,15 +47,75 @@ class EventProjectCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 120,
-                width: 160,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(8), topRight: Radius.circular(8)),
-                    image: DecorationImage(
-                        image: AssetImage(image),
-                        fit: BoxFit.cover)),
+              Stack(
+                children: [
+                  Container(
+                  height: 120,
+                  width: 160,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8), topRight: Radius.circular(8)),
+                      image: DecorationImage(
+                          image: AssetImage(image),
+                          fit: BoxFit.cover)),
+                ),
+                type == 'proje'?Positioned(
+                  bottom: 0,
+                  child: Container(
+                    height: 25,
+                    width: 160,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: [
+                        primarycolor,
+                        const Color.fromRGBO(255, 193, 227, 0.900),
+                        const Color.fromRGBO(255, 193, 227, 0.873),
+                      ])
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(width: 10,),
+                            Container(
+                              height: 12,
+                              width: 12,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage("lib/Asset/teqvim.png"))
+                              ),
+                            ),
+                            SizedBox(width: 7,),
+                            Statictext(text: "19.11.2024", size: 10,color: Colors.white,)
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            proje_type == 'music'?Container(
+                              height: 12,
+                              width: 12,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage("lib/Asset/musicicon.png"))
+                              ),
+                            ):proje_type == 'film'?Container(
+                              height: 12,
+                              width: 12,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage("lib/Asset/filmicon.png"))
+                              ),
+                            ):Container(),
+                            SizedBox(width: 7,),
+                            Statictext(text: "25", size: 10,color: Colors.white,),
+                            SizedBox(width: 10,),
+                          ],
+                        )
+                      ],
+                    ),
+                  )):Container()
+                ],
               ),
               SizedBox(
                 height: 5,
@@ -86,6 +154,13 @@ class EventProjectCard extends StatelessWidget {
                       ],
                     ),
                   ),
+                  type == 'proje'?Container(
+                              height: 12,
+                              width: 12,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(proje_owner_logo))
+                              ),
+                            ):Container(),
                   SizedBox(
                     width: 4,
                   ),

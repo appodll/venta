@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:venta/Constant/AllEventsElement.dart';
 import 'package:venta/Constant/AllNewsElement.dart';
+import 'package:venta/Constant/AllProjeElement.dart';
 import 'package:venta/Constant/DashboardHeader.dart';
 import 'package:venta/Constant/NewsElement.dart';
 import 'package:venta/Constant/StaticText.dart';
@@ -82,7 +83,11 @@ class Dashboard extends StatelessWidget {
                     )
                   ],
                 ),
-              )
+              ),
+              SizedBox(height: 7,),
+
+              Allprojeelement()
+
             ],
           ),
         ),

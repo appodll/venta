@@ -8,8 +8,9 @@ class Allnewselement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+              
               height: 228,
-              width: Get.width - 30,
+              width: Get.width - 10,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(17),
         boxShadow: [
@@ -21,17 +22,21 @@ class Allnewselement extends StatelessWidget {
         ],
               ),
               child: PageView.builder(
+                
                 itemCount: 2,
                 itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: (){
-                      print(index);
-                    },
-                    child: Newselement(
-                                    description: "Prezident İlham Əliyev Təhsil Sektorunda Yeni İslahatları Təsdiqlədi.",
-                                    image: "lib/Asset/ilham.jpg",
-                                    views: "24",
-                                  ),
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    child: GestureDetector(
+                      onTap: (){
+                        print(index);
+                      },
+                      child: Newselement(
+                                      description: "Prezident İlham Əliyev Təhsil Sektorunda Yeni İslahatları Təsdiqlədi.",
+                                      image: "lib/Asset/ilham.jpg",
+                                      views: "24",
+                                    ),
+                    ),
                   );
               },),
             );
