@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:venta/Constant/AllCategoryElement.dart';
 import 'package:venta/Constant/AllEventsElement.dart';
 import 'package:venta/Constant/AllJobsVacancyElement.dart';
 import 'package:venta/Constant/AllNewsElement.dart';
 import 'package:venta/Constant/AllProjeElement.dart';
 import 'package:venta/Constant/AllSuccessProjeElement.dart';
 import 'package:venta/Constant/AllTourElement.dart';
+import 'package:venta/Constant/CategoryElement.dart';
 import 'package:venta/Constant/CategoryHeader.dart';
 import 'package:venta/Constant/DashboardHeader.dart';
 
@@ -19,8 +21,12 @@ class Dashboard extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-          
+
               Dashboardheader(),
+              
+              SizedBox(height: 10,),
+
+              Allcategoryelement(),
           
               SizedBox(
                 height: 15,
