@@ -11,16 +11,20 @@ class EventProjectCard extends StatelessWidget {
   final type;
   final proje_type;
   final proje_owner_logo;
+  final participants;
+  final success_proje_title;
 
   const EventProjectCard({super.key, 
   required this.image, 
   required this.title, 
   required this.description, 
-  required this.views, 
-  required this.reviews, 
+  this.views, 
+  this.reviews, 
   this.type,
   this.proje_type,
-  this.proje_owner_logo
+  this.proje_owner_logo,
+  this.participants,
+  this.success_proje_title
   });
 
   @override
@@ -48,6 +52,7 @@ class EventProjectCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
+                alignment: Alignment.center,
                 children: [
                   Container(
                   height: 120,
@@ -59,7 +64,14 @@ class EventProjectCard extends StatelessWidget {
                           image: AssetImage(image),
                           fit: BoxFit.cover)),
                 ),
-                type == 'proje'?Positioned(
+                type == 'success_proje'?Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(image: AssetImage("lib/Asset/player.png"))
+                  ),
+                ):Container(),
+                type == 'proje' || type == 'tour' || type == "success_proje"? Positioned(
                   bottom: 0,
                   child: Container(
                     height: 25,
@@ -74,7 +86,7 @@ class EventProjectCard extends StatelessWidget {
                         const Color.fromRGBO(255, 193, 227, 0.873),
                       ])
                     ),
-                    child: Row(
+                    child: type != 'success_proje'?Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
@@ -106,14 +118,20 @@ class EventProjectCard extends StatelessWidget {
                               decoration: BoxDecoration(
                                 image: DecorationImage(image: AssetImage("lib/Asset/filmicon.png"))
                               ),
+                            ):proje_type == 'tour'?Container(
+                              height: 12,
+                              width: 12,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage("lib/Asset/tur_icon.png"))
+                              ),
                             ):Container(),
                             SizedBox(width: 7,),
-                            Statictext(text: "25", size: 10,color: Colors.white,),
+                            Statictext(text: participants, size: 10,color: Colors.white,),
                             SizedBox(width: 10,),
                           ],
                         )
                       ],
-                    ),
+                    ):Center(child: Statictext(text: success_proje_title, size: 12.5, color: Colors.white,),),
                   )):Container()
                 ],
               ),
@@ -135,7 +153,7 @@ class EventProjectCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Padding(
+                  type != 'success_proje'?Padding(
                     padding: EdgeInsets.only(right: 4),
                     child: Row(
                       children: [
@@ -153,8 +171,8 @@ class EventProjectCard extends StatelessWidget {
                         )
                       ],
                     ),
-                  ),
-                  type == 'proje'?Container(
+                  ):Container(),
+                  type == 'proje' || type == 'tour' || type == 'success_proje'?Container(
                               height: 12,
                               width: 12,
                               decoration: BoxDecoration(

@@ -3,6 +3,8 @@ import 'package:venta/Constant/AllEventsElement.dart';
 import 'package:venta/Constant/AllJobsVacancyElement.dart';
 import 'package:venta/Constant/AllNewsElement.dart';
 import 'package:venta/Constant/AllProjeElement.dart';
+import 'package:venta/Constant/AllSuccessProjeElement.dart';
+import 'package:venta/Constant/AllTourElement.dart';
 import 'package:venta/Constant/CategoryHeader.dart';
 import 'package:venta/Constant/DashboardHeader.dart';
 
@@ -35,6 +37,7 @@ class Dashboard extends StatelessWidget {
               Alleventselement(),
               
               Categoryheader(category_title: "Lahiyələr", button_title: "Hamısı", onPress: (){}),
+
               SizedBox(height: 7,),
 
               Allprojeelement(),
@@ -53,7 +56,17 @@ class Dashboard extends StatelessWidget {
 
               SizedBox(height: 7,),
 
-              Allprojeelement()
+              Alltourelement(),
+
+              SizedBox(height: 7,),
+
+              Categoryheader(category_title: "Uğurlu təyinlər", button_title: "Hamısı", onPress: (){}),
+
+              SizedBox(height: 7,),
+
+              Allsuccessprojeelement(),
+              
+              SizedBox(height: 7,),
 
             ],
           ),

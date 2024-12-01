@@ -2,11 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:venta/Constant/eventsProjectElement.dart';
 
-class Allprojeelement extends StatelessWidget {
+class Alltourelement extends StatelessWidget {
   var proje = [
     {
-      "proje_type" : "film",
-      "image" : "lib/Asset/lahiye.png",
+      "proje_type" : "tour",
+      "image" : "lib/Asset/şuşa.png",
+      "description" : "Lorem İpsum dolar sit amet, con sec tetur adipiscinaskdhhjkasdhjkasdhjkashjkdkhjasdg elit, sed do e",
+      "title" : "Lorem Ipsum",
+      "reviews" : "4.6",
+      "views" : "415",
+      "proje_owner_logo" : "lib/Asset/V logo.png",
+      "participants" : "90"
+    },
+    {
+      "proje_type" : "tour",
+      "image" : "lib/Asset/tur2.png",
+      "description" : "Lorem İpsum dolar sit amet, con sec tetur adipiscinaskdhhjkasdhjkasdhjkashjkdkhjasdg elit, sed do e",
+      "title" : "Lorem Ipsum",
+      "reviews" : "4.6",
+      "views" : "415",
+      "proje_owner_logo" : "lib/Asset/V logo2.png",
+      "participants" : "215"
+    },
+    {
+      "proje_type" : "tour",
+      "image" : "lib/Asset/şuşa.png",
       "description" : "Lorem İpsum dolar sit amet, con sec tetur adipiscinaskdhhjkasdhjkasdhjkashjkdkhjasdg elit, sed do e",
       "title" : "Lorem Ipsum",
       "reviews" : "4.6",
@@ -15,38 +35,19 @@ class Allprojeelement extends StatelessWidget {
       "participants" : "25"
     },
     {
-      "proje_type" : "music",
-      "image" : "lib/Asset/tedbir.png",
+      "proje_type" : "tour",
+      "image" : "lib/Asset/tur2.png",
       "description" : "Lorem İpsum dolar sit amet, con sec tetur adipiscinaskdhhjkasdhjkasdhjkashjkdkhjasdg elit, sed do e",
       "title" : "Lorem Ipsum",
       "reviews" : "4.6",
       "views" : "415",
       "proje_owner_logo" : "lib/Asset/V logo2.png",
-      "participants" : "18"
-    },
-    {
-      "proje_type" : "film",
-      "image" : "lib/Asset/lahiye.png",
-      "description" : "Lorem İpsum dolar sit amet, con sec tetur adipiscinaskdhhjkasdhjkasdhjkashjkdkhjasdg elit, sed do e",
-      "title" : "Lorem Ipsum",
-      "reviews" : "4.6",
-      "views" : "415",
-      "proje_owner_logo" : "lib/Asset/V logo.png",
-      "participants" : "25"
-    },
-    {
-      "proje_type" : "music",
-      "image" : "lib/Asset/tedbir.png",
-      "description" : "Lorem İpsum dolar sit amet, con sec tetur adipiscinaskdhhjkasdhjkasdhjkashjkdkhjasdg elit, sed do e",
-      "title" : "Lorem Ipsum",
-      "reviews" : "4.6",
-      "views" : "415",
-      "proje_owner_logo" : "lib/Asset/V logo2.png",
-      "participants" : "26"
+      "participants" : "2"
     },
 
   ];
-  Allprojeelement({super.key});
+  Alltourelement({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +61,7 @@ class Allprojeelement extends StatelessWidget {
                   return EventProjectCard(
                     proje_owner_logo: proje[index]["proje_owner_logo"],
                     proje_type: proje[index]["proje_type"],
-                    type: 'proje',
+                    type: 'tour',
                     image: proje[index]["image"],
                     description: proje[index]["description"],
                     title: proje[index]["title"],
@@ -71,4 +72,4 @@ class Allprojeelement extends StatelessWidget {
               },),
             );
   }
-}
+  }
