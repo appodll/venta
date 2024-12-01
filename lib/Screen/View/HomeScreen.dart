@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venta/Constant/BottomButtonElement.dart';
 import 'package:venta/Screen/View/Tabs/Dashboard.dart';
 import 'package:venta/Screen/View/Tabs/SearchScreen.dart';
+import 'package:venta/Theme/ThemeService.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,110 +38,60 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
         
             children: [
-              InkWell(
-                borderRadius: BorderRadius.circular(5),
-                
+              
+              Bottombuttonelement(
                 onTap: (){
                   setState(() {
                     page_index = 0;
                   });
-                },
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image(image: AssetImage("lib/Asset/BottomNavigation/home.png"),height: 28,
-                    color: page_index != 0?Colors.grey:Color.fromRGBO(231, 52, 110, 1),),
-                    SizedBox(height: 3,),
-                    Text("Ana Səhifə", style: GoogleFonts.poppins(
-                      fontSize: 13.5,
-                      color: page_index != 0?Color.fromRGBO(103, 109, 117, 1):Color.fromRGBO(231, 52, 110, 1)
-                    ),)
-                  ],
-                ),
-              ),
-              InkWell(
-                borderRadius: BorderRadius.circular(5),
+                }, 
+                color: page_index != 0?Colors.grey:primarycolor,
+                icon: "lib/Asset/BottomNavigation/home.png",
+                title: "Ana səhifə",),
+                
+              
+              Bottombuttonelement(
                 onTap: (){
                   setState(() {
                     page_index = 1;
                   });
-                },
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image(image: AssetImage("lib/Asset/BottomNavigation/search.png"),height: 28,
-                    color: page_index != 1?Colors.grey:Color.fromRGBO(231, 52, 110, 1),),
-                    SizedBox(height: 3,),
-                    Text("Axtarış", style: GoogleFonts.poppins(
-                      fontSize: 13.5,
-                      color: page_index != 1?Colors.grey:Color.fromRGBO(231, 52, 110, 1)
-                    ),)
-                  ],
-                ),
-              ),
-              InkWell(
-                borderRadius: BorderRadius.circular(5),
+                }, 
+                color: page_index != 1?Colors.grey:primarycolor,
+                icon: "lib/Asset/BottomNavigation/search.png",
+                title: "Axtarış",),
+
+                Bottombuttonelement(
                 onTap: (){
                   setState(() {
                     page_index = 2;
                   });
-                },
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image(image: AssetImage("lib/Asset/BottomNavigation/message.png"),height: 28,
-                    color: page_index != 2?Colors.grey:Color.fromRGBO(231, 52, 110, 1),),
-                    SizedBox(height: 3,),
-                    Text("İsmarıc", style: GoogleFonts.poppins(
-                      fontSize: 13.5,
-                      color: page_index != 2?Colors.grey:Color.fromRGBO(231, 52, 110, 1)
-                    ),)
-                  ],
-                ),
-              ),
-              InkWell(
-                borderRadius: BorderRadius.circular(5),
+                }, 
+                color: page_index != 2?Colors.grey:primarycolor,
+                icon: "lib/Asset/BottomNavigation/message.png",
+                title: "İsmarıc",),
+
+                Bottombuttonelement(
                 onTap: (){
                   setState(() {
                     page_index = 3;
                   });
-                },
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image(image: AssetImage("lib/Asset/BottomNavigation/social.png"),height: 28,
-                    color: page_index != 3?Colors.grey:Color.fromRGBO(231, 52, 110, 1),),
-                    SizedBox(height: 3,),
-                    Text("Sosial media", style: GoogleFonts.poppins(
-                      fontSize: 13.5,
-                      color: page_index != 3?Colors.grey:Color.fromRGBO(231, 52, 110, 1)
-                    ),)
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 5),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(5),
+                }, 
+                color: page_index != 3?Colors.grey:primarycolor,
+                icon: "lib/Asset/BottomNavigation/social.png",
+                title: "Sosial media",),
+
+                Padding(
+                  padding: EdgeInsets.only(right: 5),
+                  child: Bottombuttonelement(
                   onTap: (){
                     setState(() {
                       page_index = 4;
                     });
-                  },
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Image(image: AssetImage("lib/Asset/BottomNavigation/account.png"),height: 28,
-                      color: page_index != 4?Colors.grey:Color.fromRGBO(231, 52, 110, 1),),
-                      SizedBox(height: 3,),
-                      Text("Profil", style: GoogleFonts.poppins(
-                        fontSize: 13.5,
-                        color: page_index != 4?Colors.grey:Color.fromRGBO(231, 52, 110, 1)
-                      ),)
-                    ],
-                  ),
+                  }, 
+                  color: page_index != 4?Colors.grey:primarycolor,
+                  icon: "lib/Asset/BottomNavigation/account.png",
+                  title: "Profil",)
                 ),
-              ),
             ],
           ),
         ),

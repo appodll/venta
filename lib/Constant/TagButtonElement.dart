@@ -20,6 +20,7 @@ class _TagbuttonelementState extends State<Tagbuttonelement> {
   @override
   Widget build(BuildContext context) {
     return Wrap(
+      alignment: WrapAlignment.center,
       spacing: 3,
       runSpacing: 3,
       children: [

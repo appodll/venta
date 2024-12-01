@@ -82,10 +82,14 @@ class _InterestedscreenState extends State<Interestedscreen> {
 
                  Tagbuttonelement(),
 
+                 SizedBox(height: 10,),
+
                 GestureDetector(onTap: ()async{
 
                 Get.offAll(HomeScreen(),transition: Transition.rightToLeft,duration: Duration(milliseconds: 500));
+
                 _stroge.save_Data("user", true, 'bool');
+
               }, child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
