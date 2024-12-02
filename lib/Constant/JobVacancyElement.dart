@@ -12,11 +12,11 @@ class Jobvacancyelement extends StatelessWidget {
 
   const Jobvacancyelement({
     required this.vacancy_title, 
-    required this.price, 
+    this.price, 
     required this.company, 
     required this.location, 
     required this.created_at,
-    required this.company_logo
+    required this.company_logo,
     });
 
   @override
@@ -57,7 +57,15 @@ class Jobvacancyelement extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Statictext(text: vacancy_title, size: 14,fontWeight: FontWeight.w600,),
-                      Row(
+
+                      price == "Razılaşma yolu ilə"?
+                      
+                      Statictext(text: "Razılaşma yolu ilə", size: 13,
+                          fontWeight: FontWeight.w500,
+                          color: Color.fromRGBO(102, 102, 102, 1),
+                          )
+
+                          :Row(
                         children: [
                           Statictext(text: price, size: 13,
                           fontWeight: FontWeight.w500,

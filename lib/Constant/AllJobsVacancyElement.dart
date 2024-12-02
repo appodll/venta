@@ -2,7 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:venta/Constant/JobVacancyElement.dart';
 
 class Alljobsvacancyelement extends StatelessWidget {
-  const Alljobsvacancyelement({super.key});
+  var alljobs_list = [
+    {
+      "company_logo" : "lib/Asset/venta.png",
+      "vacancy_title" : "Pizzamen",
+      "price" : "450",
+      "company" : "Venta",
+      "location" : "Bakı",
+      "created_at" : "29.09.2024"
+    },
+    {
+      "company_logo" : "lib/Asset/venta.png",
+      "vacancy_title" : "İngilis dili müəllimi",
+      "price" : "Razılaşma yolu ilə",
+      "company" : "Venta",
+      "location" : "Sumqayıt",
+      "created_at" : "29.09.2024"
+    },
+    {
+      "company_logo" : "lib/Asset/venta.png",
+      "vacancy_title" : "Ethics and Compliance Officer",
+      "price" : "550",
+      "company" : "Venta",
+      "location" : "Bakı",
+      "created_at" : "29.09.2024"
+    },
+  ];
+
+  Alljobsvacancyelement({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,15 +37,15 @@ class Alljobsvacancyelement extends StatelessWidget {
                 height: 200,
                 child: ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
-                  itemCount: 3,
+                  itemCount: alljobs_list.length,
                   itemBuilder: (context, index) {
                     return Jobvacancyelement(
-                      company_logo: "lib/Asset/venta.png",
-                      vacancy_title: "Ethics and Compliance Officer",
-                      price: "500",
-                      company: "Venta",
-                      location: "Bakı",
-                      created_at: "29.09.2024",
+                      company_logo: alljobs_list[index]['company_logo'],
+                      vacancy_title: alljobs_list[index]['vacancy_title'],
+                      price: alljobs_list[index]['price'],
+                      company: alljobs_list[index]['company'],
+                      location: alljobs_list[index]['location'],
+                      created_at: alljobs_list[index]['created_at'],
                     );
                 },),
               );

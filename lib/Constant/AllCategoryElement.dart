@@ -21,35 +21,39 @@ class Allcategoryelement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: Get.width - 30,
-      height: 45,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: category_list.length,
-        itemBuilder: (context, index) {
-          return Row(
-            children: [
-              Column(children: [
-                SizedBox(
-                  height: 5,
-                ),
-                Categoryelement(
-                  onTap: (){
-
-                  },
-                  title: category_list[index],
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-              ]),
-              SizedBox(width: 15,)
-              
-              ],
-          );
-        },
-      ),
+    return Row(
+      children: [
+        SizedBox(width: 5,),
+        Container(
+        width: Get.width - 10,
+        height: 60,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: category_list.length,
+          itemBuilder: (context, index) {
+            return Row(
+              children: [
+                Column(children: [
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Categoryelement(
+                    onTap: (){
+      
+                    },
+                    title: category_list[index],
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                ]),
+                SizedBox(width: 15,)
+                
+                ],
+            );
+          },
+        ),
+      )],
     );
   }
 }

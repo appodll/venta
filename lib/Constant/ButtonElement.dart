@@ -11,6 +11,9 @@ class Buttonelement extends StatelessWidget {
   final type;
   final side;
   final text_color;
+  final double font_size;
+  final double padding;
+  final font_weight;
 
   Buttonelement(
       {required this.onPressed,
@@ -20,7 +23,11 @@ class Buttonelement extends StatelessWidget {
       this.height = 55.0,
       this.type = 'elevated',
       this.side,
-      this.text_color});
+      this.text_color,
+      this.font_size = 12.0,
+      this.padding = 16.0,
+      this.font_weight = FontWeight.w500
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -46,20 +53,21 @@ class Buttonelement extends StatelessWidget {
             ? OutlinedButton(
                 onPressed: onPressed,
                 style: OutlinedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                  padding: EdgeInsets.symmetric(horizontal: padding, vertical: 10),
                   side: side,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                   backgroundColor: backgroundColor,
+                  
                 ),
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
                     color: text_color,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
+                    fontSize: font_size,
+                    fontWeight: font_weight,
                   ),
                 ),
               )

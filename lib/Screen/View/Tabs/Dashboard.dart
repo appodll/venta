@@ -6,7 +6,6 @@ import 'package:venta/Constant/AllNewsElement.dart';
 import 'package:venta/Constant/AllProjeElement.dart';
 import 'package:venta/Constant/AllSuccessProjeElement.dart';
 import 'package:venta/Constant/AllTourElement.dart';
-import 'package:venta/Constant/CategoryElement.dart';
 import 'package:venta/Constant/CategoryHeader.dart';
 import 'package:venta/Constant/DashboardHeader.dart';
 
@@ -29,7 +28,7 @@ class Dashboard extends StatelessWidget {
               Allcategoryelement(),
           
               SizedBox(
-                height: 15,
+                height: 10,
               ),
           
               Allnewselement(),

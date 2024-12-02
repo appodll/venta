@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:venta/Constant/StaticText.dart';
+import 'package:venta/Constant/ButtonElement.dart';
 
 class Categoryelement extends StatelessWidget {
   final title;
@@ -8,19 +8,15 @@ class Categoryelement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.all(7),
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.black.withOpacity(0.7), strokeAlign: 0.1),
-            borderRadius: BorderRadius.circular(8)),
-        child: Statictext(
-          text: title,
-          size: 14,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-    );
+    return Buttonelement(
+      onPressed: onTap, 
+      title: title,
+      type: 'outlined',
+      backgroundColor: Colors.white,
+      text_color: Colors.black,
+      font_weight: FontWeight.w600,
+      font_size: 13.5,
+      padding: 12,
+      );
   }
 }
