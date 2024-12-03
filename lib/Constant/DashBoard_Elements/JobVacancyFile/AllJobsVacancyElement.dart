@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:venta/Constant/JobVacancyElement.dart';
+import 'package:venta/Constant/DashBoard_Elements/JobVacancyFile/JobVacancyElement.dart';
 
 class Alljobsvacancyelement extends StatelessWidget {
   var alljobs_list = [

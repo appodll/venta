@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:venta/Constant/AllCategoryElement.dart';
-import 'package:venta/Constant/AllEventsElement.dart';
-import 'package:venta/Constant/AllJobsVacancyElement.dart';
-import 'package:venta/Constant/AllNewsElement.dart';
-import 'package:venta/Constant/AllProjeElement.dart';
-import 'package:venta/Constant/AllSuccessProjeElement.dart';
-import 'package:venta/Constant/AllTourElement.dart';
-import 'package:venta/Constant/CategoryHeader.dart';
+import 'package:venta/Constant/DashBoard_Elements/Dashboard_CategoryFile/AllCategoryElement.dart';
+import 'package:venta/Constant/DashBoard_Elements/EventsFile/AllEventsElement.dart';
+import 'package:venta/Constant/DashBoard_Elements/JobVacancyFile/AllJobsVacancyElement.dart';
+import 'package:venta/Constant/DashBoard_Elements/NewsFile/AllNewsElement.dart';
+import 'package:venta/Constant/DashBoard_Elements/ProjeFile/AllProjeElement.dart';
+import 'package:venta/Constant/DashBoard_Elements/AllSuccessProjeFile/AllSuccessProjeElement.dart';
+import 'package:venta/Constant/DashBoard_Elements/ToursFile/AllTourElement.dart';
+import 'package:venta/Constant/DashBoard_Elements/Category_Header/CategoryHeader.dart';
 import 'package:venta/Constant/DashboardHeader.dart';
 
 class Dashboard extends StatelessWidget {
