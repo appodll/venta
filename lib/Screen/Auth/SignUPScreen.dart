@@ -183,7 +183,8 @@ class _SignupscreenState extends State<Signupscreen> {
                       Get.to(OTPScreen(
                         booll: true,
                       ), transition: Transition.rightToLeft, duration: Duration(milliseconds: 500));
-                    }, title: "Kod göndər"),
+                    }, title: "Kod göndər",
+                    font_size: 20,),
                   
                   SizedBox(height: 17,),
                   Container(
@@ -222,7 +223,8 @@ class _SignupscreenState extends State<Signupscreen> {
                   Buttonelement(onPressed: (){
                       Get.off(SignInScreen(), transition: Transition.leftToRight,duration: Duration(milliseconds: 500));
                     }, title: "Daxil ol",
-                    backgroundColor: primarycolor,),
+                    backgroundColor: primarycolor,
+                    font_size: 20,),
                   
                    SizedBox(height: 15,)
 

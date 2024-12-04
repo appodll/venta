@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:venta/Constant/eventsProjectElement.dart';
 
+import '../../ContentPage.dart';
+
 class Alleventselement extends StatelessWidget {
   const Alleventselement({super.key});
 
@@ -14,12 +16,17 @@ class Alleventselement extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: 4,
                 itemBuilder: (context, index) {
-                  return EventProjectCard(
-                    image: "lib/Asset/tedbir.png",
-                    description: "Lorem İpsum dolar sit amet, con sec tetur adipiscinaskdhhjkasdhjkasdhjkashjkdkhjasdg elit, sed do e",
-                    title: "Lorem Ipsum",
-                    reviews: '4,6',
-                    views: '415',
+                  return GestureDetector(
+                    onTap: (){
+                        Get.to(Contentpage(id: index,),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
+                      },
+                    child: EventProjectCard(
+                      image: "lib/Asset/tedbir.png",
+                      description: "Lorem İpsum dolar sit amet, con sec tetur adipiscinaskdhhjkasdhjkasdhjkashjkdkhjasdg elit, sed do e",
+                      title: "Lorem Ipsum",
+                      reviews: '4,6',
+                      views: '415',
+                    ),
                   );
               },),
             );

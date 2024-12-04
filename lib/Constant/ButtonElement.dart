@@ -14,6 +14,7 @@ class Buttonelement extends StatelessWidget {
   final double font_size;
   final double padding;
   final font_weight;
+  final Widget? child;
 
   Buttonelement(
       {required this.onPressed,
@@ -26,20 +27,28 @@ class Buttonelement extends StatelessWidget {
       this.text_color,
       this.font_size = 12.0,
       this.padding = 16.0,
-      this.font_weight = FontWeight.w500
-      });
+      this.font_weight = FontWeight.w500,
+      this.child});
 
   @override
   Widget build(BuildContext context) {
     return type == 'elevated'
         ? ElevatedButton(
             onPressed: onPressed,
-            child: Text(
-              title,
-              style: GoogleFonts.poppins(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  title,
+                  style: GoogleFonts.poppins(
+                      fontSize: font_size,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500),
+                ),
+                if (child != null) ...[
+                  child! 
+                ],
+              ],
             ),
             style: ButtonStyle(
               minimumSize: WidgetStatePropertyAll(
@@ -53,13 +62,13 @@ class Buttonelement extends StatelessWidget {
             ? OutlinedButton(
                 onPressed: onPressed,
                 style: OutlinedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: padding, vertical: 10),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: padding, vertical: 10),
                   side: side,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                   backgroundColor: backgroundColor,
-                  
                 ),
                 child: Text(
                   title,

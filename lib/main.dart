@@ -15,6 +15,7 @@ class Main extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: Splash(),
+      
     );
   }
 }

@@ -29,7 +29,7 @@ class Allnewselement extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 10.0),
                     child: GestureDetector(
                       onTap: (){
-                        Get.to(Contentpage(),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
+                        Get.to(Contentpage(id: index,),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
                       },
                       child: Newselement(
                                       description: "Prezident İlham Əliyev Təhsil Sektorunda Yeni İslahatları Təsdiqlədi.",

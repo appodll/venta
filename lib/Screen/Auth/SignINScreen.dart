@@ -137,6 +137,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(height: 17,),
 
                     Buttonelement(
+                      font_size: 20,
                       onPressed: errorBool == false?(){
                       Get.to(
                         OTPScreen(booll: false,
@@ -149,6 +150,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       SizedBox(height: 25,),
 
                       Buttonelement(
+                        font_size: 20,
                         onPressed: (){
                         Get.to(Signupscreen(), transition: Transition.rightToLeft,duration: Duration(milliseconds: 500));
                       }, 

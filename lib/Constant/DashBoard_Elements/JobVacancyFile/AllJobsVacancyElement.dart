@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:venta/Constant/ContentPage.dart';
 import 'package:venta/Constant/DashBoard_Elements/JobVacancyFile/JobVacancyElement.dart';
 
 class Alljobsvacancyelement extends StatelessWidget {
@@ -39,13 +41,18 @@ class Alljobsvacancyelement extends StatelessWidget {
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: alljobs_list.length,
                   itemBuilder: (context, index) {
-                    return Jobvacancyelement(
-                      company_logo: alljobs_list[index]['company_logo'],
-                      vacancy_title: alljobs_list[index]['vacancy_title'],
-                      price: alljobs_list[index]['price'],
-                      company: alljobs_list[index]['company'],
-                      location: alljobs_list[index]['location'],
-                      created_at: alljobs_list[index]['created_at'],
+                    return GestureDetector(
+                      onTap: (){
+                        Get.to(Contentpage(id: index,),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
+                      },
+                      child: Jobvacancyelement(
+                        company_logo: alljobs_list[index]['company_logo'],
+                        vacancy_title: alljobs_list[index]['vacancy_title'],
+                        price: alljobs_list[index]['price'],
+                        company: alljobs_list[index]['company'],
+                        location: alljobs_list[index]['location'],
+                        created_at: alljobs_list[index]['created_at'],
+                      ),
                     );
                 },),
               );

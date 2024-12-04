@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:venta/Constant/ContentPage.dart';
 import 'package:venta/Constant/eventsProjectElement.dart';
 
 class Alltourelement extends StatelessWidget {
@@ -58,16 +59,21 @@ class Alltourelement extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: proje.length,
                 itemBuilder: (context, index) {
-                  return EventProjectCard(
-                    proje_owner_logo: proje[index]["proje_owner_logo"],
-                    proje_type: proje[index]["proje_type"],
-                    type: 'tour',
-                    image: proje[index]["image"],
-                    description: proje[index]["description"],
-                    title: proje[index]["title"],
-                    reviews: proje[index]["reviews"],
-                    views: proje[index]["views"],
-                    participants: proje[index]["participants"],
+                  return GestureDetector(
+                    onTap: (){
+                        Get.to(Contentpage(id: index,),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
+                      },
+                    child: EventProjectCard(
+                      proje_owner_logo: proje[index]["proje_owner_logo"],
+                      proje_type: proje[index]["proje_type"],
+                      type: 'tour',
+                      image: proje[index]["image"],
+                      description: proje[index]["description"],
+                      title: proje[index]["title"],
+                      reviews: proje[index]["reviews"],
+                      views: proje[index]["views"],
+                      participants: proje[index]["participants"],
+                    ),
                   );
               },),
             );

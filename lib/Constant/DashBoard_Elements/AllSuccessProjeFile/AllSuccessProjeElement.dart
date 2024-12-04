@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:venta/Constant/ContentPage.dart';
 import 'package:venta/Constant/eventsProjectElement.dart';
 
 class Allsuccessprojeelement extends StatelessWidget {
@@ -61,13 +62,18 @@ class Allsuccessprojeelement extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: proje.length,
                 itemBuilder: (context, index) {
-                  return EventProjectCard(
-                    success_proje_title: proje[index]["success_proje_title"],
-                    proje_owner_logo: proje[index]["proje_owner_logo"],
-                    type: 'success_proje',
-                    image: proje[index]["image"],
-                    description: proje[index]["description"],
-                    title: proje[index]["title"],
+                  return GestureDetector(
+                    onTap: (){
+                        Get.to(Contentpage(id: index,),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
+                      },
+                    child: EventProjectCard(
+                      success_proje_title: proje[index]["success_proje_title"],
+                      proje_owner_logo: proje[index]["proje_owner_logo"],
+                      type: 'success_proje',
+                      image: proje[index]["image"],
+                      description: proje[index]["description"],
+                      title: proje[index]["title"],
+                    ),
                   );
               },),
             );
