@@ -20,7 +20,7 @@ class _ContentpageState extends State<Contentpage> {
   var _carouselController = CarouselSliderController();
 
   var image_list = [
-    "http://162.0.211.148:8080/get_message_sound?sender_id=eyvaz&receiver_id=rip&sound_path=eyvazRIP.mp4",
+    "https://www.w3schools.com/html/mov_bbb.mp4",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/%C5%9Eu%C5%9Fa_qalas%C4%B1_2024-c%C3%BC_ilin_aprelind%C9%99.jpg/1200px-%C5%9Eu%C5%9Fa_qalas%C4%B1_2024-c%C3%BC_ilin_aprelind%C9%99.jpg",
     "https://unikal.org/photos/unikal/1584035752.news_20200312090635.jpg",
     "https://www.petmate.com/cdn/shop/files/cat_nine_lives.jpg?v=1718820487&width=1920"

@@ -5,12 +5,16 @@ import 'package:venta/Theme/ThemeService.dart';
 class Categoryheader extends StatelessWidget {
   final category_title;
   final button_title;
-  final void Function() onPress;
+  final category_title_color;
+  final type;
+  final void Function()? onPress;
 
   const Categoryheader({
   required this.category_title, 
-  required this.button_title, 
-  required this.onPress
+  this.button_title, 
+  this.onPress,
+  this.type,
+  this.category_title_color = primarycolor
   });
 
   @override
@@ -21,8 +25,8 @@ class Categoryheader extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                    
-                    Statictext(text: category_title, size: 18, fontWeight: FontWeight.w600,color: primarycolor,),
-                    Row(
+                    Statictext(text: category_title, size: 18, fontWeight: FontWeight.w600,color: category_title_color,),
+                    type != 'search_category'?Row(
                       children: [
                         
                         Statictext(text: button_title, size: 18),
@@ -32,7 +36,7 @@ class Categoryheader extends StatelessWidget {
                           child: Image.asset("lib/Asset/right.png",scale: 1.7,),
                         )
                       ],
-                    )
+                    ):Container()
                   ],
                 ),
               );
