@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:venta/Constant/ContentPage.dart';
+import 'package:venta/Constant/DashBoard_Elements/ContentPageFile/ContentPage.dart';
 import 'package:venta/Constant/DashBoard_Elements/NewsFile/NewsElement.dart';
 
 class Allnewselement extends StatelessWidget {
@@ -29,7 +29,7 @@ class Allnewselement extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 10.0),
                     child: GestureDetector(
                       onTap: (){
-                        Get.to(Contentpage(id: index,),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
+                        Get.to(Contentpage(id: index,type: 'news',),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
                       },
                       child: Newselement(
                                       description: "Prezident İlham Əliyev Təhsil Sektorunda Yeni İslahatları Təsdiqlədi.",

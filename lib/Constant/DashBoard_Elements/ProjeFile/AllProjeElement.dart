@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:venta/Constant/ContentPage.dart';
+import 'package:venta/Constant/DashBoard_Elements/ContentPageFile/ContentPage.dart';
 import 'package:venta/Constant/eventsProjectElement.dart';
 
 class Allprojeelement extends StatelessWidget {
@@ -60,7 +60,7 @@ class Allprojeelement extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: (){
-                        Get.to(Contentpage(id: index,),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
+                        Get.to(Contentpage(id: index,type: 'proje',),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
                       },
                     child: EventProjectCard(
                       proje_owner_logo: proje[index]["proje_owner_logo"],

@@ -7,15 +7,22 @@ class Inputelement extends StatelessWidget {
   final label;
   final suffixIcon;
   final controller;
+  final border_color;
+  final label_color;
   final void Function(String)? onChanged;
   final inputFormatters;
+  final double border_radius;
 
   Inputelement(
       {required this.label,
       required this.suffixIcon,
       required this.controller,
       this.inputFormatters,
-      this.onChanged});
+      this.onChanged,
+      this.border_color = primarycolor,
+      this.label_color = const Color.fromRGBO(151, 154, 160, 1),
+      this.border_radius = 12
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -30,21 +37,21 @@ class Inputelement extends StatelessWidget {
             labelText: label,
             labelStyle: GoogleFonts.poppins(
                 fontSize: 14,
-                color: Color.fromRGBO(151, 154, 160, 1),
+                color: label_color,
                 fontWeight: FontWeight.w500,
                 letterSpacing: 0),
             floatingLabelStyle: GoogleFonts.poppins(
               fontSize: 18,
-              color: primarycolor,
+              color: border_color,
               fontWeight: FontWeight.w500,
             ),
             focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: primarycolor)),
+                borderRadius: BorderRadius.circular(border_radius),
+                borderSide: BorderSide(color: border_color)),
             enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(border_radius),
                 borderSide:
-                    BorderSide(color: primarycolor))),
+                    BorderSide(color: border_color))),
       ),
     );
   }

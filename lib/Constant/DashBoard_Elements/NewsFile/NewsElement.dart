@@ -52,7 +52,7 @@ class Newselement extends StatelessWidget {
                         color: Colors.white,)
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        padding: EdgeInsets.symmetric(horizontal: 13),
                         child: Row(
                           children: [
                             Container(

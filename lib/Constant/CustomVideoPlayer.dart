@@ -35,7 +35,7 @@ class _ChewieVideoPlayerState extends State<ChewieVideoPlayer> {
               bufferedColor: Colors.grey,
               
             ),
-            hideControlsTimer: Duration(milliseconds: 500)
+            hideControlsTimer: Duration(milliseconds: 600)
           );
         });
       });

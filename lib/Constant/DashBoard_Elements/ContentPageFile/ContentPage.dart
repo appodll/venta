@@ -1,22 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:venta/Constant/ButtonElement.dart';
 import 'package:venta/Constant/CustomVideoPlayer.dart';
+import 'package:venta/Constant/DashBoard_Elements/ContentPageFile/ContentPageButtonElement.dart';
 import 'package:venta/Constant/StaticText.dart';
 
 class Contentpage extends StatefulWidget {
   final id;
+  final type;
 
-
-  Contentpage({super.key, required this.id});
+  Contentpage({super.key, required this.id, required this.type});
 
   @override
   State<Contentpage> createState() => _ContentpageState();
 }
 
 class _ContentpageState extends State<Contentpage> {
-  final PageController _pageController = PageController();
+  var _carouselController = CarouselSliderController();
 
   var image_list = [
     "http://162.0.211.148:8080/get_message_sound?sender_id=eyvaz&receiver_id=rip&sound_path=eyvazRIP.mp4",
@@ -29,40 +30,11 @@ class _ContentpageState extends State<Contentpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.25),
-                blurRadius: 8,
-                offset: Offset(5, 5),
-              ),
-            ]),
-            child: Buttonelement(
-              child: Padding(
-                padding: EdgeInsets.only(left: 8),
-                child: Container(
-                  height: 27,
-                  width: 27,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("lib/Asset/send.png"))),
-                ),
-              ),
-              onPressed: () {},
-              title: "Müraciət göndər",
-              font_size: 17,
-              width: Get.width - 180,
-              height: 44.0,
-            ),
-          ),
-          SizedBox(
-            height: 15,
-          )
-        ],
-      ),
+      bottomNavigationBar: widget.type != 'news'?Contentpagebuttonelement(
+        title: "Müraciət göndər",
+        icon: "lib/Asset/send.png",
+        onPress: (){},
+        ):null,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -108,32 +80,43 @@ class _ContentpageState extends State<Contentpage> {
                 alignment: Alignment.center,
                 children: [
                   Container(
-                    height: 275,
-                    decoration: BoxDecoration(boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.15),
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                        color: Colors.black.withOpacity(0.25),
                         blurRadius: 8,
                         offset: Offset(5, 7),
                       ),
-                    ]),
-                    child: PageView.builder(
-                      controller: _pageController,
+                      ]
+                    ),
+                    child: CarouselSlider.builder(
+                      carouselController: _carouselController,
                       itemCount: image_list.length,
-                      itemBuilder: (context, index) {
-                        
-                        return image_list[index].endsWith('.mp4')?ChewieVideoPlayer(video_url: image_list[index],)
-                        :Container(
-                          height: 275,
-                          child: CachedNetworkImage(
-                            imageUrl: image_list[index],
-                            placeholder: (context, url) =>
-                                Center(child: CircularProgressIndicator()),
-                            errorWidget: (context, url, error) =>
-                                Center(child: Icon(Icons.error)),
-                            fit: BoxFit.cover,
-                          ),
-                        );
+                      itemBuilder: (context, index, realIndex) {
+                        return image_list[index].endsWith('.mp4')
+                            ? ChewieVideoPlayer(
+                                video_url: image_list[index],
+                              )
+                            : Container(
+                                height: 275,
+                                child: CachedNetworkImage(
+                                  imageUrl: image_list[index],
+                                  placeholder: (context, url) => Center(
+                                      child: CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) =>
+                                      Center(child: Icon(Icons.error)),
+                                  fit: BoxFit.cover,
+                                ),
+                              );
                       },
+                      options: CarouselOptions(
+                        height: 275,
+                        enlargeCenterPage: true,
+                        viewportFraction: 1.0,
+                        enableInfiniteScroll: true,
+                        autoPlay: false,
+                        onPageChanged: (index, reason) {},
+                      ),
                     ),
                   ),
                   Padding(
@@ -143,11 +126,7 @@ class _ContentpageState extends State<Contentpage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            if (_pageController.hasClients) {
-                              _pageController.previousPage(
-                                  duration: Duration(milliseconds: 300),
-                                  curve: Curves.easeInOut);
-                            }
+                            _carouselController.previousPage();
                           },
                           child: Container(
                             height: 35,
@@ -159,11 +138,7 @@ class _ContentpageState extends State<Contentpage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            if (_pageController.hasClients) {
-                              _pageController.nextPage(
-                                  duration: Duration(milliseconds: 300),
-                                  curve: Curves.easeInOut);
-                            }
+                            _carouselController.nextPage();
                           },
                           child: Container(
                             height: 35,
@@ -231,19 +206,22 @@ class _ContentpageState extends State<Contentpage> {
                           Row(
                             children: [
                               Statictext(
-                            text: "500-600",
-                            size: 13,
-                            fontWeight: FontWeight.w600,
-                            color: Color.fromRGBO(102, 102, 102, 1),
-                          ),
-                          SizedBox(width: 5,),
-                          Container(
-                            width: 13,
-                            height: 13,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(image: AssetImage("lib/Asset/manat.png"))
-                            ),
-                          )
+                                text: "500-600",
+                                size: 13,
+                                fontWeight: FontWeight.w600,
+                                color: Color.fromRGBO(102, 102, 102, 1),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Container(
+                                width: 13,
+                                height: 13,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "lib/Asset/manat.png"))),
+                              )
                             ],
                           )
                         ],
