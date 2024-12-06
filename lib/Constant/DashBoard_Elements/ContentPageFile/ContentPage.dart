@@ -203,7 +203,7 @@ class _ContentpageState extends State<Contentpage> {
                               )
                             ],
                           ),
-                          Row(
+                          widget.type == "vacancy"?Row(
                             children: [
                               Statictext(
                                 text: "500-600",
@@ -223,7 +223,7 @@ class _ContentpageState extends State<Contentpage> {
                                             "lib/Asset/manat.png"))),
                               )
                             ],
-                          )
+                          ):Container()
                         ],
                       ),
                     )

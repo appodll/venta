@@ -22,7 +22,7 @@ class Popularsearches extends StatelessWidget {
               title: "Uğur hekayələri",
               date: "29.09.2024",
               onPress: (){
-
+                
               },
               type: 'popular_search',
               ),
