@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:venta/Constant/CustomVideoPlayer.dart';
 import 'package:venta/Constant/DashBoard_Elements/ContentPageFile/ContentPageButtonElement.dart';
+import 'package:venta/Constant/DashBoard_Elements/ContentPageFile/ContentPageHeader.dart';
 import 'package:venta/Constant/StaticText.dart';
 
 class Contentpage extends StatefulWidget {
@@ -40,42 +41,12 @@ class _ContentpageState extends State<Contentpage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: Container(
-                        height: 35,
-                        width: 35,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("lib/Asset/back.png"))),
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Statictext(
-                          text: "Xəbərlər",
-                          size: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        SizedBox(
-                          width: 35,
-                        )
-                      ],
-                    ),
-                    Container()
-                  ],
-                ),
-              ),
+              Contentpageheader(),
+
               SizedBox(
                 height: 15,
               ),
+              
               Stack(
                 alignment: Alignment.center,
                 children: [

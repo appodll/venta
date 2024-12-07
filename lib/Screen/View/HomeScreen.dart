@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:venta/Constant/BottomFile/BottomButtonElement.dart';
 import 'package:venta/Screen/View/Tabs/Dashboard.dart';
+import 'package:venta/Screen/View/Tabs/MessageScreen.dart';
 import 'package:venta/Screen/View/Tabs/SearchScreen.dart';
 import 'package:venta/Theme/ThemeService.dart';
 
@@ -16,7 +17,8 @@ class _HomeScreenState extends State<HomeScreen> {
   var page_index = 0;
   List<Widget> _screens = [
     Dashboard(),
-    Searchscreen()
+    Searchscreen(),
+    Messagescreen()
   ];
 
   @override

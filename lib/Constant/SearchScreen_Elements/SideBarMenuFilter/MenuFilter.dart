@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:venta/Constant/SearchScreen_Elements/SideBarMenuFilter/MenuFilterBody.dart';
+import 'package:venta/Constant/SearchScreen_Elements/SideBarMenuFilter/MenuFilterHeader.dart';
 
 class Menufilter extends StatelessWidget {
   const Menufilter({super.key});
@@ -17,6 +19,15 @@ class Menufilter extends StatelessWidget {
             side: BorderSide(
               color: Colors.black
             )
+          ),
+          child: Column(
+            children: [
+              SizedBox(height: 10),
+
+              Menufilterheader(),
+              
+              Menufilterbody()
+            ],
           ),
         );
   }

@@ -5,8 +5,10 @@ import 'package:venta/Constant/SearchScreen_Elements/SearchesFile/SearchesElemen
 class Recentsearches extends StatelessWidget {
   final double itemHeight = 45; 
   final int itemCount = 2; 
+  final void Function()? onPress_deleted;
+  final void Function()? onPress;
 
-  const Recentsearches({super.key});
+  const Recentsearches({super.key, this.onPress_deleted, this.onPress});
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +25,8 @@ class Recentsearches extends StatelessWidget {
             child: Searcheselement(
               title: "Uğur hekayələri",
               date: "29.09.2024",
-              onPress: (){
-
-              },
-              onPress_deleted: (){
-                
-              },
+              onPress: onPress,
+              onPress_deleted: onPress_deleted,
               
               ),
           );
