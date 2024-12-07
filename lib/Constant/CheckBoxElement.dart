@@ -5,8 +5,17 @@ import 'package:venta/Theme/ThemeService.dart';
 class Checkboxelement extends StatelessWidget {
   final value;
   final void Function(bool) onChange;
+  final double radius;
+  final double thickness;
+  final double size;
 
-  Checkboxelement({required this.value, required this.onChange});
+  Checkboxelement({
+    required this.value, 
+    required this.onChange, 
+    this.radius = 7, 
+    this.thickness = 2.5,
+    this.size = 20
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +24,9 @@ class Checkboxelement extends StatelessWidget {
       shouldShowBorder: true,
       borderColor: primarycolor,
       checkedFillColor: primarycolor,
-      borderRadius: 7,
-      borderWidth: 2.5,
-      checkBoxSize: 20,
+      borderRadius: radius,
+      borderWidth: thickness,
+      checkBoxSize: size,
       onChanged: onChange,
     );
   }

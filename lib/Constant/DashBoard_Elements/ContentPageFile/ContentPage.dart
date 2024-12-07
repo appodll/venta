@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:venta/Constant/CustomVideoPlayer.dart';
 import 'package:venta/Constant/DashBoard_Elements/ContentPageFile/ContentPageButtonElement.dart';
 import 'package:venta/Constant/DashBoard_Elements/ContentPageFile/ContentPageHeader.dart';
@@ -194,7 +193,22 @@ class _ContentpageState extends State<Contentpage> {
                                             "lib/Asset/manat.png"))),
                               )
                             ],
-                          ):Container()
+                          ):widget.type == 'news' || widget.type == "success_proje"?Container():Row(
+                            children: [
+                              Image.asset(
+                          "lib/Asset/star.png",
+                          scale: 1.8,
+                        ),
+                        SizedBox(
+                          width: 7,
+                        ),
+                        Statictext(
+                          text: "4.6 (415)",
+                          size: 10,
+                          fontWeight: FontWeight.w500,
+                        )
+                            ],
+                          )
                         ],
                       ),
                     )

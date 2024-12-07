@@ -64,7 +64,7 @@ class Allsuccessprojeelement extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: (){
-                        Get.to(Contentpage(id: index,type: 'successproje',),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
+                        Get.to(Contentpage(id: index,type: 'success_proje',),transition: Transition.fadeIn,duration: Duration(milliseconds: 300));
                       },
                     child: EventProjectCard(
                       success_proje_title: proje[index]["success_proje_title"],

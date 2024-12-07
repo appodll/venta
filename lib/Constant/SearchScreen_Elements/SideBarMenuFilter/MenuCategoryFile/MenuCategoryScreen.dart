@@ -1,18 +1,92 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:venta/Constant/ButtonElement.dart';
+import 'package:venta/Constant/InputElement.dart';
 import 'package:venta/Constant/SearchScreen_Elements/SideBarMenuFilter/MenuCategoryFile/MenuCategoryScreenHeader.dart';
+import 'package:venta/Constant/SearchScreen_Elements/SideBarMenuFilter/MenuCategoryFile/MenuCheckBoxElement.dart';
 
-class Menucategoryscreen extends StatelessWidget {
+class Menucategoryscreen extends StatefulWidget {
   final category_title;
-  Menucategoryscreen({super.key, required this.category_title});
+  final type;
+
+  Menucategoryscreen(
+      {super.key, required this.category_title, required this.type});
+
+  @override
+  State<Menucategoryscreen> createState() => _MenucategoryscreenState();
+}
+
+class _MenucategoryscreenState extends State<Menucategoryscreen> {
+  var category_list = [
+    "İşçi",
+    "Lorem ipsum",
+    "Lorem ipsum",
+    "Lorem ipsum",
+    "Lorem ipsum",
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Buttonelement(
+            onPressed: () {},
+            title: "Tətbiq et",
+            font_size: 18,
+            height: 50.0,
+          ),
+          SizedBox(
+            height: 30,
+          )
+        ],
+      ),
+
       body: SafeArea(
         child: Column(
           children: [
-            Menucategoryscreenheader(category_title: category_title)
+            Menucategoryscreenheader(category_title: widget.category_title),
+            SizedBox(
+              height: 20,
+            ),
+            widget.type == "Yaş" || widget.type == "Boy" || widget.type == "Əmək haqqı"?Column(
+              children: [
+                Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                        width: Get.width / 2.3,
+                        child: Inputelement(
+                            label: 'Minimum',
+                            suffixIcon: Image.asset("lib/Asset/manat.png",scale: 1.5,),
+                            controller: TextEditingController())),
+                    Container(
+                        width: Get.width / 2.3,
+                        child: Inputelement(
+                            label: 'Maksimum',
+                            suffixIcon: Image.asset("lib/Asset/manat.png",scale: 1.5,),
+                            controller: TextEditingController()))
+                  ],
+                ),
+              ),
+              SizedBox(
+              height: 20,
+            )
+              ],
+            ):Container(),
+            
+            Expanded(
+                child: ListView.builder(
+              itemCount: category_list.length,
+              itemBuilder: (context, index) {
+                return Menucheckboxelement(title: category_list[index]);
+              },
+            ))
           ],
         ),
       ),

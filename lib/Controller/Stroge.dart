@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:venta/Screen/Auth/SignINScreen.dart';
-import 'package:venta/Screen/VentaLGScreen.dart';
 import 'package:venta/Screen/View/HomeScreen.dart';
 import 'package:venta/SplashView.dart';
 
@@ -11,6 +10,12 @@ class Stroge{
     final prefs = await SharedPreferences.getInstance();
     if (type == "bool"){
       prefs.setBool(key, value);
+    }
+    else if (type == "int"){
+      prefs.setInt(key, value);
+    }
+    else if (type == "string"){
+      prefs.setString(key, value);
     }
   }
 
