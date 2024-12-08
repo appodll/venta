@@ -55,20 +55,7 @@ class _MenucategoryscreenState extends State<Menucategoryscreen> {
               height: 20,
             ),
 
-            widget.type == "Ünvan"?
             
-            Container(
-              height: 45,
-              child: Inputelement(
-                    border_radius: 10,
-                    label_color: Color.fromRGBO(102, 102, 102, 1),
-                    border_color: Color.fromRGBO(45, 45, 45, 1),
-                    label: "Məntəqə seçin",
-                    suffixIcon: IconButton(
-                        onPressed: () {}, icon: Icon(Icons.search, size: 20)),
-                    controller: TextEditingController(),
-                  ),
-            ):Container(),
 
 
           //////////////////////////////////////////      
