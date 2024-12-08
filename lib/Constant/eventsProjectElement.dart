@@ -125,6 +125,7 @@ class EventProjectCard extends StatelessWidget {
                                 image: DecorationImage(image: AssetImage("lib/Asset/tur_icon.png"))
                               ),
                             ):Container(),
+                            
                             SizedBox(width: 7,),
                             Statictext(text: participants, size: 10,color: Colors.white,),
                             SizedBox(width: 10,),

@@ -50,6 +50,7 @@ dependencies:
   chewie: ^1.8.5
   carousel_slider: ^5.0.0
   cached_video_player_plus: ^3.0.3
+  google_maps_flutter: ^2.10.0
 
 dev_dependencies:
   flutter_test:

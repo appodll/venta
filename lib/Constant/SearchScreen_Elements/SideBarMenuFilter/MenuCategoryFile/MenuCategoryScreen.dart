@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:venta/Constant/ButtonElement.dart';
 import 'package:venta/Constant/InputElement.dart';
+import 'package:venta/Constant/SearchScreen_Elements/SideBarMenuFilter/MenuCategoryFile/GoogleMap.dart';
 import 'package:venta/Constant/SearchScreen_Elements/SideBarMenuFilter/MenuCategoryFile/MenuCategoryScreenHeader.dart';
 import 'package:venta/Constant/SearchScreen_Elements/SideBarMenuFilter/MenuCategoryFile/MenuCheckBoxElement.dart';
 
@@ -17,6 +19,8 @@ class Menucategoryscreen extends StatefulWidget {
 }
 
 class _MenucategoryscreenState extends State<Menucategoryscreen> {
+  
+
   var category_list = [
     "İşçi",
     "Lorem ipsum",
@@ -29,7 +33,6 @@ class _MenucategoryscreenState extends State<Menucategoryscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -44,7 +47,6 @@ class _MenucategoryscreenState extends State<Menucategoryscreen> {
           )
         ],
       ),
-
       body: SafeArea(
         child: Column(
           children: [
@@ -52,41 +54,70 @@ class _MenucategoryscreenState extends State<Menucategoryscreen> {
             SizedBox(
               height: 20,
             ),
-            widget.type == "Yaş" || widget.type == "Boy" || widget.type == "Əmək haqqı"?Column(
-              children: [
-                Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                        width: Get.width / 2.3,
-                        child: Inputelement(
-                            label: 'Minimum',
-                            suffixIcon: Image.asset("lib/Asset/manat.png",scale: 1.5,),
-                            controller: TextEditingController())),
-                    Container(
-                        width: Get.width / 2.3,
-                        child: Inputelement(
-                            label: 'Maksimum',
-                            suffixIcon: Image.asset("lib/Asset/manat.png",scale: 1.5,),
-                            controller: TextEditingController()))
-                  ],
-                ),
-              ),
-              SizedBox(
-              height: 20,
-            )
-              ],
-            ):Container(),
+
+            widget.type == "Ünvan"?
             
-            Expanded(
-                child: ListView.builder(
-              itemCount: category_list.length,
-              itemBuilder: (context, index) {
-                return Menucheckboxelement(title: category_list[index]);
-              },
-            ))
+            Container(
+              height: 45,
+              child: Inputelement(
+                    border_radius: 10,
+                    label_color: Color.fromRGBO(102, 102, 102, 1),
+                    border_color: Color.fromRGBO(45, 45, 45, 1),
+                    label: "Məntəqə seçin",
+                    suffixIcon: IconButton(
+                        onPressed: () {}, icon: Icon(Icons.search, size: 20)),
+                    controller: TextEditingController(),
+                  ),
+            ):Container(),
+
+
+          //////////////////////////////////////////      
+            widget.type == "Yaş" ||
+                    widget.type == "Boy" ||
+                    widget.type == "Əmək haqqı"
+                ? Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                width: Get.width / 2.3,
+                                child: Inputelement(
+                                    label: 'Minimum',
+                                    suffixIcon: Image.asset(
+                                      "lib/Asset/manat.png",
+                                      scale: 1.5,
+                                    ),
+                                    controller: TextEditingController())),
+                            Container(
+                                width: Get.width / 2.3,
+                                child: Inputelement(
+                                    label: 'Maksimum',
+                                    suffixIcon: Image.asset(
+                                      "lib/Asset/manat.png",
+                                      scale: 1.5,
+                                    ),
+                                    controller: TextEditingController()))
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      )
+                    ],
+                  )
+                : Container(),
+            widget.type != "Ünvan"
+                ? Expanded(
+                    child: ListView.builder(
+                    itemCount: category_list.length,
+                    itemBuilder: (context, index) {
+                      return Menucheckboxelement(title: category_list[index]);
+                    },
+                  ))
+                : Googlemap()
           ],
         ),
       ),

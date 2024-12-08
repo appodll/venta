@@ -22,7 +22,7 @@ class _MenucheckboxelementState extends State<Menucheckboxelement> {
           child: Row(
             children: [
               Checkboxelement(
-                size: 30,
+                size: 22,
                 thickness: 1,
                 radius: 20,
                 value: check_bool, 
@@ -31,9 +31,9 @@ class _MenucheckboxelementState extends State<Menucheckboxelement> {
                     check_bool = value;
                   });
               }),
-              SizedBox(width: 5,),
+              
           
-              Statictext(text: widget.title, size: 18)
+              Statictext(text: widget.title, size: 17)
             ],
           ),
         )

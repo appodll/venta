@@ -21,107 +21,110 @@ class Jobvacancyelement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-        width: Get.width - 30,
-        child: Row(
-          children: [
-            
-            Container(
-              height: 23,
-              width: 23,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
-                      blurRadius: 4,
-                      offset: Offset(3, 3),
-                    ),
+    return Container(
+      color: Colors.transparent,
+      child: Column(
+        children: [
+          Container(
+          width: Get.width - 30,
+          child: Row(
+            children: [
+              
+              Container(
+                height: 23,
+                width: 23,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        blurRadius: 4,
+                        offset: Offset(3, 3),
+                      ),
+                    
+                  ],
+                  image: DecorationImage(image: AssetImage(company_logo))
                   
-                ],
-                image: DecorationImage(image: AssetImage(company_logo))
+                ),
+                
                 
               ),
-              
-              
-            ),
-            SizedBox(width: 15,),
-            Expanded(
-              child: Column(
-                
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Statictext(text: vacancy_title, size: 14,fontWeight: FontWeight.w600,),
-
-                      price == "Razılaşma yolu ilə"?
-                      
-                      Statictext(text: "Razılaşma yolu ilə", size: 13,
-                          fontWeight: FontWeight.w500,
-                          color: Color.fromRGBO(102, 102, 102, 1),
-                          )
-
-                          :Row(
-                        children: [
-                          Statictext(text: price, size: 13,
-                          fontWeight: FontWeight.w500,
-                          color: Color.fromRGBO(102, 102, 102, 1),
-                          ),
-                          SizedBox(width: 5,),
-                          Container(
-                            width: 13,
-                            height: 13,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(image: AssetImage("lib/Asset/manat.png"))
+              SizedBox(width: 15,),
+              Expanded(
+                child: Column(
+                  
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Statictext(text: vacancy_title, size: 14,fontWeight: FontWeight.w600,),
+      
+                        price == "Razılaşma yolu ilə"?
+                        
+                        Statictext(text: "Razılaşma yolu ilə", size: 13,
+                            fontWeight: FontWeight.w500,
+                            color: Color.fromRGBO(102, 102, 102, 1),
+                            )
+      
+                            :Row(
+                          children: [
+                            Statictext(text: price, size: 13,
+                            fontWeight: FontWeight.w500,
+                            color: Color.fromRGBO(102, 102, 102, 1),
                             ),
-                          )
-                          
-                        ],
-                      )
-                    ],
-                  ),
-                  SizedBox(height: 15,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Statictext(text: company, size: 12,
-                      color: Color.fromRGBO(102, 102, 102, 1),
-                      fontWeight: FontWeight.w500,),
-                      SizedBox(width: 13,),
-                      Container(
-                        height: 12,
-                        width: 12,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage("lib/Asset/map.png"))
+                            SizedBox(width: 5,),
+                            Container(
+                              width: 13,
+                              height: 13,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage("lib/Asset/manat.png"))
+                              ),
+                            )
+                            
+                          ],
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 15,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Statictext(text: company, size: 12,
+                        color: Color.fromRGBO(102, 102, 102, 1),
+                        fontWeight: FontWeight.w500,),
+                        SizedBox(width: 13,),
+                        Container(
+                          height: 12,
+                          width: 12,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(image: AssetImage("lib/Asset/map.png"))
+                          ),
                         ),
-                      ),
-                      SizedBox(width: 4,),
-                      Statictext(text: location, size: 12,
-                      color: Color.fromRGBO(102, 102, 102, 1),
-                      fontWeight: FontWeight.w500,),
-                        ],
-                      ),
-                      Statictext(text: created_at, size: 12,
-                      color: Color.fromRGBO(102, 102, 102, 1),
-                      fontWeight: FontWeight.w500,),
-                    ],
-                  )
-                ],
-              ),
-            )
-          ],
+                        SizedBox(width: 4,),
+                        Statictext(text: location, size: 12,
+                        color: Color.fromRGBO(102, 102, 102, 1),
+                        fontWeight: FontWeight.w500,),
+                          ],
+                        ),
+                        Statictext(text: created_at, size: 12,
+                        color: Color.fromRGBO(102, 102, 102, 1),
+                        fontWeight: FontWeight.w500,),
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
+        Divider(
+          color: Colors.black,
+        )
+        ],
       ),
-      Divider(
-        color: Colors.black,
-      )
-      ],
     );
   }
 }
