@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:venta/Constant/MessageScreen_Elements/ChatMember.dart';
+import 'package:venta/Constant/MessageScreen_Elements/ChatScreen.dart';
 import 'package:venta/Constant/StaticText.dart';
 
 class Messagescreen extends StatelessWidget {
@@ -19,7 +21,11 @@ class Messagescreen extends StatelessWidget {
               ),
             ),
 
-            Chatmember()
+            Chatmember(
+              onTap: (){
+                Get.to(Chatscreen(),transition: Transition.fadeIn, duration: Duration(milliseconds: 300));
+              },
+            )
           ],
         ),
       ),

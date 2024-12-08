@@ -15,29 +15,36 @@ class _MenucheckboxelementState extends State<Menucheckboxelement> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 3),
-          child: Row(
-            children: [
-              Checkboxelement(
-                size: 22,
-                thickness: 1,
-                radius: 20,
-                value: check_bool, 
-                onChange: (value){
-                  setState(() {
-                    check_bool = value;
-                  });
-              }),
-              
-          
-              Statictext(text: widget.title, size: 17)
-            ],
-          ),
-        )
-      ],
+    return GestureDetector(
+      onTap: (){
+        setState(() {
+          check_bool =! check_bool;
+        });
+      },
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 3),
+            child: Row(
+              children: [
+                Checkboxelement(
+                  size: 22,
+                  thickness: 1,
+                  radius: 20,
+                  value: check_bool, 
+                  onChange: (value){
+                    setState(() {
+                      check_bool = value;
+                    });
+                }),
+                
+            
+                Statictext(text: widget.title, size: 17)
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

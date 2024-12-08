@@ -15,6 +15,8 @@ class Buttonelement extends StatelessWidget {
   final double padding;
   final font_weight;
   final Widget? child;
+  final double radius;
+  final shape;
 
   Buttonelement(
       {required this.onPressed,
@@ -28,7 +30,11 @@ class Buttonelement extends StatelessWidget {
       this.font_size = 12.0,
       this.padding = 16.0,
       this.font_weight = FontWeight.w500,
-      this.child});
+      this.child,
+      this.radius = 8,
+      this.shape = 'rectangle'
+      
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +60,8 @@ class Buttonelement extends StatelessWidget {
               minimumSize: WidgetStatePropertyAll(
                   Size(width == 0.0 ? Get.width - 50 : width, height)),
               backgroundColor: WidgetStatePropertyAll(backgroundColor),
-              shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8))),
+              shape: shape == "rectangle"?WidgetStatePropertyAll(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(radius))):WidgetStatePropertyAll(CircleBorder()),
             ),
           )
         : type == 'outlined'
@@ -66,7 +72,7 @@ class Buttonelement extends StatelessWidget {
                       EdgeInsets.symmetric(horizontal: padding, vertical: 10),
                   side: side,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(radius),
                   ),
                   backgroundColor: backgroundColor,
                 ),
